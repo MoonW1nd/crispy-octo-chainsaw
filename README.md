@@ -70,6 +70,9 @@
 - [gulp-clean](https://github.com/peter-vilja/gulp-clean) - очистка директории билда перед сборкой.
 - [gulp-rename](https://www.npmjs.com/package/gulp-rename) - для переименования файлов, добавления суффикса `.min` к сжатым файлам.
 - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - минификация js.
+- [gulp-posthtml](https://www.npmjs.com/package/gulp-posthtml) - плагин для использования PostHTML модулей.
+- [posthtml-include](https://www.npmjs.com/package/posthtml-include) - модуль для включение HTML в другой HTML посредством указания относительного пути.
+- [gulp-htmlnano](https://www.npmjs.com/package/gulp-htmlnano) - минификация HTML.
 
 Так же установил дополнительно пакеты [`husky`](https://www.npmjs.com/package/husky), [`lint-staged`](https://www.npmjs.com/package/lint-staged) и [`Prettier`](https://www.npmjs.com/package/prettier) для реализации автоматизированного приведения к единому стилю с помощью запуска `Prettier` в `precommit hook`.
 
