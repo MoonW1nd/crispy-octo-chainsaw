@@ -7,12 +7,18 @@ const autoprefixer = require("gulp-autoprefixer");
 const browserSync = require("browser-sync").create();
 const csso = require("gulp-csso");
 const imagemin = require("gulp-imagemin");
+const plumber = require("gulp-plumber");
+const uglify = require("gulp-uglify");
+const rename = require("gulp-rename");
+const clean = require("gulp-clean");
 
 gulp.task("styles", function() {
   return gulp
     .src("./src/styles/main.scss")
+    .pipe(plumber())
     .pipe(sass().on("error", sass.logError))
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({ browsers: ["last 2 versions"] }))
+    .pipe(rename({ suffix: ".min" }))
     .pipe(
       csso({
         restructure: false,
@@ -24,16 +30,20 @@ gulp.task("styles", function() {
 });
 
 gulp.task("assets", function() {
-  return gulp
-    .src(["src/assets/**"])
-    .pipe(newer("build/assets"))
-    .pipe(imagemin())
-    .pipe(gulp.dest("build/assets"));
+  return (
+    gulp
+      .src(["src/assets/**"])
+      .pipe(plumber())
+      .pipe(newer("build/assets"))
+      // .pipe(imagemin())
+      .pipe(gulp.dest("build/assets"))
+  );
 });
 
 gulp.task("html", function() {
   return gulp
     .src(["src/*.html"])
+    .pipe(plumber())
     .pipe(newer("build"))
     .pipe(gulp.dest("build"));
 });
@@ -41,8 +51,15 @@ gulp.task("html", function() {
 gulp.task("js", function() {
   return gulp
     .src(["src/js/*.js"])
+    .pipe(plumber())
     .pipe(newer("build/js"))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(uglify())
     .pipe(gulp.dest("build/js"));
+});
+
+gulp.task("clean", function() {
+  return gulp.src("build", { read: false }).pipe(clean({ force: true }));
 });
 
 gulp.task("serve", function() {
