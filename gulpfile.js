@@ -45,7 +45,10 @@ gulp.task('html', function() {
   let path = 'src';
 
   const options = {};
-  const plugins = [require('posthtml-include')({ root: `${path}` })];
+  const plugins = [
+    require('posthtml-include')({ root: `${path}` }),
+    require('posthtml-modules')({ root: `${path}` }),
+  ];
 
   return gulp
     .src(['src/*.html'])
