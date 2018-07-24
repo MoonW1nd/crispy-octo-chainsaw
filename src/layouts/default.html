@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+{% block Head %}
+  {% include "partials/head.njk" %}
+{% endblock %}
+
+<body class="Page-{{ pageName }}">
+  {% block Header %}
+    {% include "partials/Header/Header.njk" %}
+  {% endblock %}
+
+  {% block PageContent %}{% endblock %}
+
+  {% block name %}
+    {% include "partials/Footer/Footer.njk" %}
+  {% endblock %}
+</body>
+
+</html>

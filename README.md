@@ -76,6 +76,50 @@
 
 Так же установил дополнительно пакеты [`husky`](https://www.npmjs.com/package/husky), [`lint-staged`](https://www.npmjs.com/package/lint-staged) и [`Prettier`](https://www.npmjs.com/package/prettier) для реализации автоматизированного приведения к единому стилю с помощью запуска `Prettier` в `precommit hook`.
 
-### 2. Верстка
+### 2. Архитектура
+
+Архитектура построена на компонентном подходе.
+
+Методология - БЭМ.
+
+_**Файловая структура:**_
+
+```
+  src/
+  |__ components/
+  |   |__ componentName/
+  |   |   |__ componentName.njk   // файл с разметкой представления
+  |   |   |__ componentName.sass  // файл со стилями блока
+  |   |   |__ componentName.js    // файл со сценариями для блока
+  |    ...
+  |__ data/
+  |   |__ assets/                 // папка со всеми картинками
+  |   |__ data                    // все данные нужные для построения страницы препроцессором HTML
+  |   ...
+  |
+  |__ layouts/
+  |   |__ default.njk             // файл с разметкой для типовой страницы
+  |
+  |__ pages/                      // папка с основным контентом страниц
+  |   |__ index/
+  |   |   |__ pageContent.njk
+  |   |   |__ pageContent.sass
+  |   |   |__ pageContent.js
+  |   ...
+  |
+  |__ partials/                   // папка в которой содержатся файлы частей шаблона: шапки и подвала
+  |   |__ Header/...
+  |   |   |__ Header.njk
+  |   |   |__ Header.sass
+  |   |   |__ Header.js
+  |   |
+  |   |__ Footer/...
+  |   |__ Head.njk                // в котором хранятся все мета-теги страниц
+  |   ...
+  |__ index.html                  // точка входа для препроцессора HTML
+  ...
+```
+
+### 3. Верстка
 
 Не нашел спрайтов для `favicon`, поэтому сам нарисовал подобный в `Adobe Photoshop`
