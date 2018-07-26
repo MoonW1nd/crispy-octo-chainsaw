@@ -1,5 +1,7 @@
 <div class="PageContent">
-  {# <include src="blocks/Main/Main.html"></include> #}
-  {# <include src="blocks/PanelsGrid/PanelsGrid.html"></include> #}
-  {# <include src="blocks/PanelsRow/PanelsRow.html"></include> #}
+  <main class="Main" role="main">
+    <h2 class="Main-Title">Главное</h2>
+  </main>
+  {% include "components/PanelsGrid/PanelsGrid.njk" %}
+  {% include "components/PanelsRow/PanelsRow.njk" %}
 </div>
