@@ -1,6 +1,14 @@
 {
   "index": {
     "title": "Яндекс Дом",
-    "pageName": "summary"
+    "pageName": "summary",
+    "mainNavigation": {
+      "items": ["Сводка", "Устройства", "Сценарии"],
+      "role": "menu"
+    },
+    "footerNavigation": {
+      "items": ["Помощь", "Обратная связь", "Разработчикам", "Условия пользования"],
+      "role": "contentinfo"
+    }
   }
 }

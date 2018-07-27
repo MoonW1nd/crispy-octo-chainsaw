@@ -1,5 +1,7 @@
-{% block Logo %}
-<div class="Logo Header-Logo">
+{% macro Logo(bem) %}
+
+<div class="Logo {{bem.mix}} {{bem.mod}}">
   <img src="./assets/Яндекс Дом.svg" class="Logo-Image" alt="Яндекс Дом"/>
 </div>
-{% endblock %}
+
+{% endmacro %}

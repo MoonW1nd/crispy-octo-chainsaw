@@ -1,9 +1,13 @@
-{% block Menu %}
-<nav class="Menu Header-Menu" role="menu">
+{% macro Menu(bem, data) %}
+
+<nav class="Menu {{bem.mix}} {{bem.mod}}" role="{{ data.role }}">
   <ul class="Menu-ListItem">
-    <li class="Menu-Item">Сводка</li>
-    <li class="Menu-Item">Устройства</li>
-    <li class="Menu-Item">Сценарии</li>
+
+    {% for item in data.items %}
+      <li class="Menu-Item">{{ item }}</li>
+    {% endfor %}
+
   </ul>
 </nav>
-{% endblock %}
+
+{% endmacro %}

@@ -1,4 +1,7 @@
+{% from "components/Logo/Logo.njk" import Logo %}
+{% from "components/Menu/Menu.njk" import Menu %}
+
 <header class="Header">
-  {% include "components/Logo/Logo.njk" %}
-  {% include "components/Menu/Menu.njk" %}
+  {{ Logo({ mix: 'Header-Logo' }) }}
+  {{ Menu({ mix: 'Header-Menu' }, mainNavigation) }}
 </header>
