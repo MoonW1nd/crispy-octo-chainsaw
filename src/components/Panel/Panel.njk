@@ -1,5 +1,24 @@
-<section class="Panel">
-  <img class="Panel-icon" src="" alt="icon-description">
-  <h3 class="Panel-Title">Panel Title</h3>
-  <p class>Дополнительная информация</p>
-</section>
+{% macro Panel(bem, data) %}
+
+  {% if data.isActive %}
+    {% set state = "Panel_state_active" %}
+  {% endif %}
+
+  <section class="Panel {{bem.mod}} {{bem.mix}} {{state}}">
+    <div class="Panel-IconWrapper">
+      <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="icon-{{ data.type }}">
+      <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="icon-{{ data.type }}">
+    </div>
+    <div class="Panel-Content">
+      <h3 class="Panel-Title">{{ data.title }}</h3>
+
+      {% if data.description %}
+        <p class="Panel-Description">{{ data.description }}</p>
+      {% endif %}
+
+    </div>
+
+
+  </section>
+
+{% endmacro %}

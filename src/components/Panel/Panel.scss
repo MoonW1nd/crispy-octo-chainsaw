@@ -1,0 +1,57 @@
+.Panel {
+  $icon-size: 24px;
+  $panel-padding: 14px;
+  width: 200px;
+  height: 120px;
+  background-color: $background-color_secondary;
+  border-radius: $border-radius_primary;
+  padding: $panel-padding;
+  position: relative;
+  box-sizing: border-box;
+
+  &-Content {
+    position: absolute;
+    bottom: $panel-padding;
+    width: calc(100% - 2 * #{$panel-padding});
+  }
+
+  &-Title {
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  &-Description {
+    font-size: 0.75rem;
+    margin: 3px 0 0 0;
+    color: $text-color_secondary;
+  }
+
+  &-IconWrapper {
+    position: relative;
+    height: $icon-size;
+  }
+
+  &-Icon {
+    width: $icon-size;
+    height: $icon-size;
+    position: absolute;
+
+    &_state_active {
+      visibility: hidden;
+    }
+
+    &_state_default {
+      visibility: visible;
+    }
+  }
+
+  &.Panel_state_active {
+    .Panel-Icon_state_active {
+      visibility: visible;
+    }
+
+    .Panel-Icon_state_default {
+      visibility: hidden;
+    }
+  }
+}

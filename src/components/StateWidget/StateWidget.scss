@@ -3,8 +3,11 @@
   height: calc(50vh - 20px - 1.13rem);
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
   background-position: 50% 50%;
-  border-radius: 20px;
+  border-radius: $border-radius_primary;
+  overflow: hidden;
 
   &-StateBlock {
     padding: 25px 0 0 26px;
@@ -26,5 +29,9 @@
 
   &-Termometr {
     margin-right: 18px;
+  }
+
+  &-Slider {
+    margin: 20px;
   }
 }

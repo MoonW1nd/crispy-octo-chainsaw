@@ -11,7 +11,7 @@ $accent-color: #ffd93e;
 
 // sizes
 $font-size_primary: 16px;
-$border-size_primary: 20px;
+$border-radius_primary: 20px;
 
 html {
   font-size: $font-size_primary;
@@ -21,4 +21,8 @@ html {
 body {
   margin: 0;
   color: $text-color_primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }

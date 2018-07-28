@@ -31,7 +31,33 @@
             "weather": "cloud-drizzle"
           }
         },
-        "devices": []
+        "slider": {
+          "panels": [
+            {
+              "isActive": false,
+              "type": "temperature",
+              "title": "Philips Cooler",
+              "description": "Начнет охлаждать в 16:30"
+            },
+            {
+              "isActive": true,
+              "type": "sun",
+              "title": "Xiaomi Yeelight LED Smart Bulb",
+              "description": "Включится в 17:00"
+            },
+            {
+              "isActive": false,
+              "type": "sun",
+              "title": "Xiaomi Yeelight LED Smart Bulb",
+              "description": "Включится в 17:00"
+            },
+            {
+              "type": "temperature",
+              "title": "Philips Cooler",
+              "description": "Начнет охлаждать в 16:30"
+            }
+          ]
+        }
       }
     }
   }

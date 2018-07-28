@@ -5,7 +5,7 @@
     <p class="Termometr-Value" >
       {{data.temperature}}
       {% if data.weather %}
-        <span class="Termometr-Icon" role="icon"><img src="./assets/{{data.weather}}.svg"/></span>
+        <span class="Termometr-Icon" role="icon"><img src="./assets/{{data.weather}}.svg" alt="icon-{{data.weather}}"/></span>
       {% endif %}
     </p>
   </div>

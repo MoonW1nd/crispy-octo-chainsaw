@@ -1,0 +1,17 @@
+{% from "components/Panel/Panel.njk" import Panel %}
+
+{% macro Slider(bem, data) %}
+
+  <div class="Slider {{bem.mix}} {{bem.mod}}">
+    <ul class="Slider-ItemList">
+
+      {% for item in data.panels %}
+        <li class="Slider-Item">
+          {{ Panel({}, item) }}
+        </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+
+{% endmacro %}
