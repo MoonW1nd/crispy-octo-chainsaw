@@ -1,3 +1,7 @@
-<section class="PanelsGrid">
-  <h2>Избранные сценарии</h2>
+{% macro PanelsGrid(bem, data) %}
+
+<section class="PanelsGrid {{bem.mod}} {{bem.mix}}">
+  <h2 class="PanelsGrid-Title">{{data.title}}</h2>
 </section>
+
+{% endmacro %}

@@ -1,6 +1,7 @@
 {% extends "layouts/default.njk" %}
+{% from "pages/index/PageContent.njk" import PageContent as Content %}
 
 {% block PageContent %}
-  {% include "pages/index/PageContent.njk" %}
+  {{Content({}, content)}}
 {% endblock %}
 `

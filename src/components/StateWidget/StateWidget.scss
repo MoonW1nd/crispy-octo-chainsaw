@@ -1,0 +1,22 @@
+.StateWidget {
+  background-image: url('/assets/bg@2x.png');
+  height: calc(50vh - 20px - 1.13rem);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 20px;
+
+  &-StateBlock {
+    padding: 25px 0 0 26px;
+  }
+
+  &-Greet {
+    margin: 0;
+    font-size: 1.69rem;
+  }
+
+  &-Description {
+    margin: 6px 0 0 0;
+    font-size: 0.89rem;
+  }
+}

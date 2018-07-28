@@ -1,0 +1,20 @@
+.PageContent {
+  padding: 30px 40px 25px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &-MainTitle {
+    margin: 0 0 20px;
+    font-size: 1.13rem;
+  }
+
+  &-PanelsGrid,
+  &-Main {
+    flex-basis: calc(50vw - 40px - 13px);
+  }
+
+  &-PanelsRow {
+    flex-basis: 100%;
+  }
+}

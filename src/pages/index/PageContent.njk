@@ -1,7 +1,18 @@
+{% from "components/PanelsGrid/PanelsGrid.njk" import PanelsGrid %}
+{% from "components/PanelsRow/PanelsRow.njk" import PanelsRow %}
+{% from "components/StateWidget/StateWidget.njk" import StateWidget %}
+
+{% macro PageContent(bem, data) %}
+
 <div class="PageContent">
-  <main class="Main PageContent-Main" role="main">
-    <h2 class="Main-Title">Главное</h2>
+
+  <main class="PageContent-Main" role="main">
+    <h2 class="PageContent-MainTitle">Главное</h2>
+    {{ StateWidget({}, data.stateWidget) }}
   </main>
-  {% include "components/PanelsGrid/PanelsGrid.njk" %}
-  {% include "components/PanelsRow/PanelsRow.njk" %}
+  {{ PanelsGrid({mix: 'PageContent-PanelsGrid'}, data.panelsGrid) }}
+  {{ PanelsRow({mix: 'PageContent-PanelsRow'}, data.panelsRow) }}
+
 </div>
+
+{% endmacro %}

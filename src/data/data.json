@@ -9,6 +9,30 @@
     "footerNavigation": {
       "items": ["Помощь", "Обратная связь", "Разработчикам", "Условия пользования"],
       "role": "contentinfo"
+    },
+    "content": {
+      "panelsGrid": {
+        "title": "Избранные сценарии"
+      },
+      "panelsRow": {
+        "title": "Избранные устройства"
+      },
+      "stateWidget": {
+        "greeting": "Привет, Геннадий!",
+        "description": "Двери и окна закрыты, сигнализация включена.",
+        "weather": {
+          "home": {
+            "title": "Дома",
+            "temperature": "+23"
+          },
+          "outdoor": {
+            "title": "За окном",
+            "temperature": "+19",
+            "weather": "drizzle"
+          }
+        },
+        "devices": []
+      }
     }
   }
 }
