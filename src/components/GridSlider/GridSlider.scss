@@ -15,4 +15,14 @@
   &-Item {
     margin: 0 15px 15px 0;
   }
+
+  &-Header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-Switch {
+    margin-top: 1px;
+    align-self: flex-start;
+  }
 }

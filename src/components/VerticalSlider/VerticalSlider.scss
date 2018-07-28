@@ -21,5 +21,10 @@
     border-top-right-radius: $border-radius_primary;
     height: 41px;
     background-color: $background-color_secondary;
+
+    &:hover {
+      cursor: pointer;
+      background: $background-color_primary;
+    }
   }
 }

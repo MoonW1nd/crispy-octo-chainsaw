@@ -1,0 +1,10 @@
+{% from "components/Arrow/Arrow.njk" import Arrow %}
+
+{% macro Switch(bem, data) %}
+
+  <div class="Switch {{bem.mix}} {{bem.mod}}">
+    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_left"}) }}
+    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_right"}) }}
+  </div>
+
+{% endmacro %}

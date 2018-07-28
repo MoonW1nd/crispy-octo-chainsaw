@@ -1,10 +1,12 @@
 {% from "components/Panel/Panel.njk" import Panel %}
+{% from "components/Switch/Switch.njk" import Switch %}
 
 {% macro GridSlider(bem, data) %}
 
 <section class="GridSlider {{bem.mod}} {{bem.mix}}">
-  <header>
+  <header class="GridSlider-Header">
     <h2 class="GridSlider-Title">{{data.title}}</h2>
+    {{ Switch({mod: "GridSlider-Switch"}, {}) }}
   </header>
   <div class="GridSlider-Grid">
     <ul class="GridSlider-ItemsList">

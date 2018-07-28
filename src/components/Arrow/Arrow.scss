@@ -1,0 +1,15 @@
+.Arrow {
+  border: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+
+  img {
+    height: 14px;
+  }
+
+  &_direction_right {
+    transform: rotate(180deg);
+  }
+}
