@@ -1,0 +1,20 @@
+{% from "components/Panel/Panel.njk" import Panel %}
+
+{% macro VerticalSlider(bem, data) %}
+
+  <div class="VerticalSlider {{bem.mix}} {{bem.mod}}">
+    <ul class="VerticalSlider-ItemList">
+
+      {% for item in data.panels %}
+        <li class="VerticalSlider-Item">
+          {{ Panel({}, item) }}
+        </li>
+      {% endfor %}
+
+    </ul>
+    <button class="VerticalSlider-Button">
+      <img class="VerticalSlider-ButtonIcon" src="../assets/Icons/Arrow_Double/M.svg" alt="arrow-icon">
+    </button>
+  </div>
+
+{% endmacro %}

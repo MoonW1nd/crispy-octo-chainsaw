@@ -11,12 +11,42 @@
       "role": "contentinfo"
     },
     "content": {
-      "panelsGrid": {
-        "title": "Избранные сценарии"
+      "GridSlider": {
+        "title": "Избранные сценарии",
+        "panels": [
+          {
+            "isActive": true,
+            "type": "sun",
+            "title": "Выключить свет в доме и во дворе"
+          },
+          {
+            "isActive": false,
+            "type": "scheduled",
+            "title": "Я ухожу"
+          },
+          {
+            "isActive": false,
+            "type": "sun",
+            "title": "Включить свет в коридоре"
+          },
+          {
+            "isActive": true,
+            "type": "temperature",
+            "title": "Набрать горячую ванну",
+            "description": "Начнется в 18:00"
+          },
+          {
+            "isActive": true,
+            "type": "temperature",
+            "title": " Сделать пол теплым во всей квартире"
+          }
+        ]
       },
+
       "panelsRow": {
         "title": "Избранные устройства"
       },
+
       "stateWidget": {
         "greeting": "Привет, Геннадий!",
         "description": "Двери и окна закрыты, сигнализация включена.",
@@ -31,7 +61,8 @@
             "weather": "cloud-drizzle"
           }
         },
-        "slider": {
+
+        "verticalSlider": {
           "panels": [
             {
               "isActive": false,

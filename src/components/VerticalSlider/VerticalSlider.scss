@@ -1,0 +1,25 @@
+.VerticalSlider {
+  position: relative;
+
+  &-Item {
+    margin: 0 0 15px 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &-ItemList {
+    margin: 0;
+  }
+
+  &-Button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    border-width: 0;
+    border-top-left-radius: $border-radius_primary;
+    border-top-right-radius: $border-radius_primary;
+    height: 41px;
+    background-color: $background-color_secondary;
+  }
+}

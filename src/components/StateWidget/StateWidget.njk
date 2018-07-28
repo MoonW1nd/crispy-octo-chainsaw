@@ -1,5 +1,5 @@
 {% from "components/Termometr/Termometr.njk" import Termometr %}
-{% from "components/Slider/Slider.njk" import Slider %}
+{% from "components/VerticalSlider/VerticalSlider.njk" import VerticalSlider %}
 
 {% macro StateWidget(bem, data) %}
 
@@ -14,7 +14,7 @@
       {{Termometr({mix: "StateWidget-Termometr"}, data.weather.outdoor)}}
     </div>
   </div>
-  {{ Slider({mix: "StateWidget-Slider" }, data.slider)}}
+  {{ VerticalSlider({mix: "StateWidget-VerticalSlider" }, data.verticalSlider)}}
 </section>
 
 {% endmacro %}

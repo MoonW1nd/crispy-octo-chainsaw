@@ -10,12 +10,12 @@
     font-size: 1.13rem;
   }
 
-  &-PanelsGrid,
+  &-GridSlider,
   &-Main {
     flex-basis: calc(50vw - 40px - 13px);
   }
 
-  &-PanelsRow {
+  &-RowSlider {
     flex-basis: 100%;
   }
 }

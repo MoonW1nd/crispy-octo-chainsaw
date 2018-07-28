@@ -1,5 +1,5 @@
-{% from "components/PanelsGrid/PanelsGrid.njk" import PanelsGrid %}
-{% from "components/PanelsRow/PanelsRow.njk" import PanelsRow %}
+{% from "components/GridSlider/GridSlider.njk" import GridSlider %}
+{% from "components/RowSlider/RowSlider.njk" import RowSlider %}
 {% from "components/StateWidget/StateWidget.njk" import StateWidget %}
 
 {% macro PageContent(bem, data) %}
@@ -10,8 +10,8 @@
     <h2 class="PageContent-MainTitle">Главное</h2>
     {{ StateWidget({}, data.stateWidget) }}
   </main>
-  {{ PanelsGrid({mix: 'PageContent-PanelsGrid'}, data.panelsGrid) }}
-  {{ PanelsRow({mix: 'PageContent-PanelsRow'}, data.panelsRow) }}
+  {{ GridSlider({mix: 'PageContent-GridSlider'}, data.GridSlider) }}
+  {{ RowSlider({mix: 'PageContent-RowSlider'}, data.panelsRow) }}
 
 </div>
 

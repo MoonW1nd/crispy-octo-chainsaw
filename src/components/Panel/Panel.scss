@@ -9,6 +9,12 @@
   position: relative;
   box-sizing: border-box;
 
+  &:hover {
+    cursor: pointer;
+    background: $background-color_primary;
+    box-shadow: 0 2px 6px 0 #{rgba(#c5baba, 0.5)};
+  }
+
   &-Content {
     position: absolute;
     bottom: $panel-padding;
@@ -53,5 +59,9 @@
     .Panel-Icon_state_default {
       visibility: hidden;
     }
+  }
+
+  &_size_small {
+    height: 100px;
   }
 }

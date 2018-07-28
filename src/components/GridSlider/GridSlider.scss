@@ -1,0 +1,18 @@
+.GridSlider {
+  &-Title {
+    margin: 0 0 20px;
+    font-size: 1.13rem;
+  }
+
+  &-ItemsList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-Item {
+    margin: 0 15px 15px 0;
+  }
+}
