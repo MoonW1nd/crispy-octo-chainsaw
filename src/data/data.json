@@ -28,7 +28,7 @@
           "outdoor": {
             "title": "За окном",
             "temperature": "+19",
-            "weather": "drizzle"
+            "weather": "cloud-drizzle"
           }
         },
         "devices": []

@@ -1,0 +1,13 @@
+{% macro Termometr(bem, data) %}
+
+  <div class="Termometr {{bem.mix}} {{bem.mod}}">
+    <p class="Termometr-Title">{{data.title}}</p>
+    <p class="Termometr-Value" >
+      {{data.temperature}}
+      {% if data.weather %}
+        <span class="Termometr-Icon" role="icon"><img src="./assets/{{data.weather}}.svg"/></span>
+      {% endif %}
+    </p>
+  </div>
+
+{% endmacro %}

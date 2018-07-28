@@ -1,3 +1,5 @@
+{% from "components/Termometr/Termometr.njk" import Termometr %}
+
 {% macro StateWidget(bem, data) %}
 
 <section class="StateWidget {{ bem.mix }} {{ bem.mod }}">
@@ -7,6 +9,8 @@
       <p class="StateWidget-Description">{{ data.description }}</p>
     </div>
     <div class="StateWidget-Weather">
+      {{Termometr({mix: "StateWidget-Termometr"}, data.weather.home)}}
+      {{Termometr({mix: "StateWidget-Termometr"}, data.weather.outdoor)}}
     </div>
   </div>
   <div class="StateWidget-DeviceList">

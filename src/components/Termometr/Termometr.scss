@@ -1,0 +1,20 @@
+.Termometr {
+  &-Title {
+    margin: 0;
+    font-size: 0.88rem;
+    color: $text-color_secondary;
+  }
+
+  &-Value {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: bold;
+  }
+
+  &-Icon {
+    $icon-size: 26px;
+    width: $icon-size;
+    height: $icon-size;
+    display: inline-block;
+  }
+}
