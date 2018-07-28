@@ -1,0 +1,23 @@
+.Menu {
+  font-size: 1em;
+
+  &-ListItem {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &-Item {
+    margin-right: 26px;
+  }
+
+  &_size_small {
+    font-size: 0.75em;
+
+    .Menu-Item {
+      margin-right: 10px;
+    }
+  }
+}

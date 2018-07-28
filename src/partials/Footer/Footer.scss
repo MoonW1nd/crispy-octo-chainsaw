@@ -1,0 +1,17 @@
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  &-Menu {
+    margin-left: 40px;
+  }
+
+  &-Copyright {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    margin-right: 36px;
+    color: $text-color_secondary;
+  }
+}

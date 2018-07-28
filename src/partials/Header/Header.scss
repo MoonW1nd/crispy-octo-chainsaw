@@ -1,9 +1,17 @@
 .Header {
   width: 100%;
   height: 92px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid $divider-color;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  &-Logo {
+    margin-left: 40px;
+  }
+
+  &-Menu {
+    margin-left: 52px;
+    font-weight: bold;
+  }
 }

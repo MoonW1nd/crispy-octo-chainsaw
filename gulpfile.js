@@ -15,6 +15,7 @@ const minifyHTML = require('gulp-htmlnano');
 const nunjucks = require('gulp-nunjucks');
 const environments = require('gulp-environments');
 const data = require('./src/data/data.json');
+const concat = require('gulp-concat');
 
 // DEFINE ENVIRONMENTS
 
@@ -25,11 +26,16 @@ const production = environments.production;
 
 function styles() {
   return gulp
-    .src(['./src/main.scss'])
+    .src(['./src/**/*.scss'])
     .pipe(plumber())
+    .pipe(concat('main.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(
+      rename({
+        suffix: '.min',
+      })
+    )
     .pipe(production(csso({ restructure: false })))
     .pipe(
       development(
@@ -57,6 +63,7 @@ function javaScript() {
   return gulp
     .src(['src/js/*.js'])
     .pipe(plumber())
+    .pipe(concat('main.js'))
     .pipe(newer('build/js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(production(uglify()))
@@ -84,9 +91,9 @@ function assets() {
 }
 
 function watch() {
-  gulp.watch('src/styles/**/*.*', styles).on('change', browserSync.reload);
+  gulp.watch('src/**/*.scss', styles).on('change', browserSync.reload);
   gulp.watch('src/assets/*.*', assets).on('change', browserSync.reload);
-  gulp.watch('src/js/*.js', javaScript).on('change', browserSync.reload);
+  gulp.watch('src/**/*.js', javaScript).on('change', browserSync.reload);
   gulp.watch('src/**/*.njk', html).on('change', browserSync.reload);
 }
 

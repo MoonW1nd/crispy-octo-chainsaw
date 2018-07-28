@@ -1,0 +1,23 @@
+// CONSTANTS
+
+// COLORS
+$text-color_primary: #333333;
+$text-color_primary_light: rgba(#333333, 0.6);
+$text-color_secondary: #858585;
+$background-color_primary: #ffffff;
+$background-color_secondary: #f7f7f7;
+$divider-color: #f0f0f0;
+$accent-color: #ffd93e;
+
+// sizes
+$font-size_primary: 16px;
+
+html {
+  font-size: $font-size_primary;
+  font-family: Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+}
+
+body {
+  margin: 0;
+  color: $text-color_primary;
+}
