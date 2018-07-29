@@ -1,0 +1,20 @@
+{% macro Filter(bem, data) %}
+
+  <div class="Filter {{bem.mix}} {{bem.mod}}">
+    <ul class="Filter-TypesList">
+
+      {% for item in data.filterTypes %}
+
+        {% if item.isActive %}
+          {% set state = "Filter-Type_state_active" %}
+        {% else %}
+            {% set state = '' %}
+        {% endif %}
+
+        <li class="Filter-Type {{state}}"><b>{{item.value}}</b></li>
+      {% endfor %}
+
+    </ul>
+  </div>
+
+{% endmacro %}

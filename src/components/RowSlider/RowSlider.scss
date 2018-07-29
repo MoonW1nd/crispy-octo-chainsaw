@@ -8,6 +8,8 @@
 
   &-Header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &-Item {
@@ -16,7 +18,16 @@
   }
 
   &-Title {
-    margin: 0 0 20px;
+    margin: 0;
     font-size: 1.13rem;
+  }
+
+  &-Filter {
+    margin-left: 13px;
+    flex: 1;
+  }
+
+  &-Row {
+    margin: 20px 0 25px;
   }
 }

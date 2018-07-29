@@ -88,7 +88,31 @@
             "title": "Philips Cooler",
             "description": "Начнет охлаждать в 16:30"
           }
-        ]
+        ],
+        "filter": {
+          "filterTypes": [
+            {
+              "isActive": true,
+              "value": "Все"
+            },
+            {
+              "isActive": false,
+              "value": "Кухня"
+            },
+            {
+              "isActive": false,
+              "value": "Зал"
+            },
+            {
+              "isActive": false,
+              "value": "Лампочки"
+            },
+            {
+              "isActive": false,
+              "value": "Камеры"
+            }
+          ]
+        }
       },
 
       "stateWidget": {
