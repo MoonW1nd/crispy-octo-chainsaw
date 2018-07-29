@@ -1,0 +1,21 @@
+.Button {
+  font-size: 1.13rem;
+  border: 0;
+  color: $text-color-primary;
+  height: 60px;
+  background-color: $background-color_primary;
+  border-radius: $border-radius_primary;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-color_secondary;
+  }
+
+  &_type_confirm {
+    background-color: $accent-color;
+
+    &:hover {
+      background-color: $accent-color_dark;
+    }
+  }
+}

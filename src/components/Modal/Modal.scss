@@ -26,6 +26,17 @@
     position: relative;
   }
 
+  &-Form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-ButtonBlock {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+  }
+
   &-IconWrapper {
     display: flex;
     position: absolute;
@@ -42,6 +53,14 @@
   &-Description {
     font-size: 0.88rem;
     margin: 6px 0 0 0;
+  }
+
+  &-Button {
+    flex: 1;
+
+    &:first-child {
+      margin-right: 16px;
+    }
   }
 
   &_hidden {

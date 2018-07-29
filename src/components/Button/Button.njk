@@ -1,0 +1,11 @@
+{% macro Button(bem, data) %}
+
+  {% if data.type == "confirm" %}
+    {% set type = "Button_type_confirm" %}
+  {% else %}
+    {% set type = "" %}
+  {% endif %}
+
+  <button class="Button {{bem.mix}} {{bem.mod}} {{type}}"><b>{{data.content}}</b></button>
+
+{% endmacro %}
