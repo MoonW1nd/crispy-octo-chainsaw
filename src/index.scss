@@ -8,6 +8,7 @@ $background-color_primary: #ffffff;
 $background-color_secondary: #f7f7f7;
 $divider-color: #f0f0f0;
 $accent-color: #ffd93e;
+$accent-color_dark: #ffcd00;
 
 // sizes
 $font-size_primary: 16px;
@@ -26,4 +27,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+
+  &.Modal_blure {
+    filter: blur(5px);
+  }
 }

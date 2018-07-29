@@ -1,0 +1,21 @@
+{% macro Modal(bem, data) %}
+
+  <div class="Modal {{bem.mix}} {{bem.mod}}" tabindex="-1" aria-hidden="true" role="dialog">
+    <section class="Modal-Content">
+      <header class="Modal-Header">
+        <h2 class="Modal-Title">Elgato Eve Degree Connected</h2>
+
+        <div class="Modal-IconWrapper">
+          <p class="Modal-Value"></p>
+          <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="">
+        </div>
+
+        <p class="Modal-Description">Включено</p>
+
+      </header>
+      <div class="Modal-Controller">
+      </div>
+    </section>
+  </div>
+
+{% endmacro %}

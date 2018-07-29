@@ -1,5 +1,10 @@
 {% extends "layouts/default.njk" %}
 {% from "pages/index/PageContent.njk" import PageContent as Content %}
+{% from "components/Modal/Modal.njk" import Modal %}
+
+{% block Modal %}
+  {{Modal({},{})}}
+{% endblock %}
 
 {% block PageContent %}
   {{Content({}, content)}}

@@ -1,0 +1,59 @@
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($text-color_primary, 0.5);
+  z-index: 99;
+
+  &-Content {
+    border-radius: $border-radius_primary;
+    background-color: $background-color_primary;
+    width: 630px;
+    padding: 25px;
+  }
+
+  &-Title {
+    font-size: 1.67rem;
+    margin: 0;
+  }
+
+  &-Header {
+    position: relative;
+  }
+
+  &-IconWrapper {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &-Icon {
+    $icon-size: 45px;
+    width: $icon-size;
+    height: $icon-size;
+  }
+
+  &-Description {
+    font-size: 0.88rem;
+    margin: 6px 0 0 0;
+  }
+
+  &_hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    padding: 0;
+    width: 1px;
+    white-space: nowrap;
+  }
+}

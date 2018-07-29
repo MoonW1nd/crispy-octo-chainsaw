@@ -6,6 +6,8 @@
 {% endblock %}
 
 <body class="Page-{{ pageName }}">
+  {% block Modal %}{% endblock %}
+
   {% block Header %}
     {% include "partials/Header/Header.njk" %}
   {% endblock %}
