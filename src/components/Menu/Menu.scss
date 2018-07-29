@@ -11,6 +11,11 @@
 
   &-Item {
     margin-right: 26px;
+
+    a {
+      text-decoration: none;
+      color: $text-color_primary_light;
+    }
   }
 
   &_size_small {

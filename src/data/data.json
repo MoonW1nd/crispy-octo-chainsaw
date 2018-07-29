@@ -44,7 +44,51 @@
       },
 
       "panelsRow": {
-        "title": "Избранные устройства"
+        "title": "Избранные устройства",
+        "panels": [
+          {
+            "isActive": true,
+            "type": "sun",
+            "title": "Xiaomi Yeelight LED Smart Bulb",
+            "description": "Включено"
+          },
+          {
+            "isActive": false,
+            "type": "sun",
+            "title": "D-Link Omna 180 Cam",
+            "description": "Включится в 17:00"
+          },
+          {
+            "isActive": false,
+            "type": "temperature",
+            "title": "Elgato Eve Degree Connected",
+            "description": "Включено до 17:00"
+          },
+          {
+            "isActive": false,
+            "type": "sun",
+            "title": "LIFX Mini Day & Dusk A60 E27",
+            "description": "Включится в 17:00"
+          },
+          {
+            "isActive": true,
+            "type": "sun",
+            "title": "Xiaomi Mi Air Purifier 2S",
+            "description": "Включено"
+          },
+          {
+            "isActive": false,
+            "type": "sun",
+            "title": "Philips Zhirui",
+            "description": "Выключено"
+          },
+          {
+            "isActive": true,
+            "type": "temperature",
+            "title": "Philips Cooler",
+            "description": "Начнет охлаждать в 16:30"
+          }
+        ]
       },
 
       "stateWidget": {

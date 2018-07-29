@@ -1,7 +1,24 @@
+{% from "components/Panel/Panel.njk" import Panel %}
+{% from "components/Switch/Switch.njk" import Switch %}
+
 {% macro RowSlider(bem, data) %}
 
 <section class="RowSlider {{bem.mix}} {{bem.mod}}">
-  <h2 class="RowSlider-Title">{{data.title}}</h2>
+  <header class="RowSlider-Header">
+    <h2 class="RowSlider-Title">{{data.title}}</h2>
+    {{ Switch({mod: "GridSlider-Switch"}, {}) }}
+  </header>
+  <div class="RowSlider-Row">
+    <ul class="RowSlider-ItemsList">
+
+      {% for item in data.panels %}
+        <li class="RowSlider-Item">
+          {{ Panel({}, item)}}
+        </li>
+      {% endfor %}
+
+    </ul>
+  </div>
 </section>
 
 {% endmacro %}

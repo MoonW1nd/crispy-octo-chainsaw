@@ -8,6 +8,11 @@
   padding: $panel-padding;
   position: relative;
   box-sizing: border-box;
+  font-family: $font-family;
+  text-align: initial;
+  border: 0;
+  color: $text-color_primary;
+  display: block;
 
   &:hover {
     cursor: pointer;
@@ -33,8 +38,8 @@
   }
 
   &-IconWrapper {
-    position: relative;
-    height: $icon-size;
+    position: absolute;
+    top: $panel-padding;
   }
 
   &-Icon {

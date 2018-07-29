@@ -4,7 +4,7 @@
     {% set state = "Panel_state_active" %}
   {% endif %}
 
-  <section class="Panel {{bem.mod}} {{bem.mix}} {{state}}">
+  <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}">
     <div class="Panel-IconWrapper">
       <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="icon-{{ data.type }}">
       <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="icon-{{ data.type }}">
@@ -17,8 +17,6 @@
       {% endif %}
 
     </div>
-
-
-  </section>
+  </button>
 
 {% endmacro %}
