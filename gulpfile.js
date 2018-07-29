@@ -16,11 +16,28 @@ const nunjucks = require('gulp-nunjucks');
 const environments = require('gulp-environments');
 const data = require('./src/data/data.json');
 const concat = require('gulp-concat');
+const removeEmptyLines = require('gulp-remove-empty-lines');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 // DEFINE ENVIRONMENTS
 
 const development = environments.development;
 const production = environments.production;
+const babelOptions = {
+  presets: [
+    [
+      'env',
+      {
+        targets: {
+          browsers: ['last 2 versions'],
+        },
+      },
+    ],
+  ],
+};
 
 // FUNCTIONS
 
@@ -55,16 +72,20 @@ function html() {
     .pipe(plumber())
     .pipe(nunjucks.compile(data.index))
     .pipe(rename({ extname: '.html' }))
+    .pipe(removeEmptyLines())
     .pipe(production(minifyHTML()))
     .pipe(gulp.dest('build'));
 }
 
 function javaScript() {
-  return gulp
-    .src(['src/js/*.js'])
+  const bundleStream = browserify('src/index.js') // Передача входной точки для browserify
+    .transform('babelify', babelOptions)
+    .bundle();
+
+  return bundleStream
+    .pipe(source('main.js'))
+    .pipe(buffer())
     .pipe(plumber())
-    .pipe(concat('main.js'))
-    .pipe(newer('build/js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(production(uglify()))
     .pipe(gulp.dest('build/js'));

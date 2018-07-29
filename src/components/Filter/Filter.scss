@@ -4,17 +4,25 @@
     padding: 0;
     margin: 0;
     display: flex;
-    font-size: 0.81rem;
   }
 
-  &-Type {
+  &-Button {
+    font-size: 0.81rem;
     margin: 0 10px 0 0;
     padding: 9px 15px;
     border-radius: $border-radius_primary;
     background-color: $background-color_secondary;
+    border: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &_state_active {
       background-color: $accent-color;
+      &:hover {
+        background: $accent-color;
+      }
     }
   }
 }

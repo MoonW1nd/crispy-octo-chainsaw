@@ -72,6 +72,13 @@
 - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - минификация js.
 - [gulp-htmlnano](https://www.npmjs.com/package/gulp-htmlnano) - минификация HTML.
 - [gulp-environments](https://www.npmjs.com/package/gulp-environments) - гибкая настройка gulp конфига под development и production сборки.
+- [babel](https://babeljs.io/): - транспиляция JS
+  - [babel-core](https://www.npmjs.com/package/babel-core)
+  - [babel-preset-env](https://www.npmjs.com/package/babel-preset-env)
+  - [babelify](https://www.npmjs.com/package/babelify)
+- [browserify](https://www.npmjs.com/package/browserify): - поддержка модульной разработки JS
+  - [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer)
+  - [vinyl-source-stream](https://www.npmjs.com/package/vinyl-source-stream)
 
 Так же установил дополнительно пакеты [`husky`](https://www.npmjs.com/package/husky), [`lint-staged`](https://www.npmjs.com/package/lint-staged) и [`Prettier`](https://www.npmjs.com/package/prettier) для реализации автоматизированного приведения к единому стилю с помощью запуска `Prettier` в `precommit hook`.
 

@@ -6,12 +6,14 @@
       {% for item in data.filterTypes %}
 
         {% if item.isActive %}
-          {% set state = "Filter-Type_state_active" %}
+          {% set state = "Filter-Button_state_active" %}
         {% else %}
             {% set state = '' %}
         {% endif %}
 
-        <li class="Filter-Type {{state}}"><b>{{item.value}}</b></li>
+        <li class="Filter-Type">
+          <button class="Filter-Button {{state}}"><b>{{item.value}}</b></button>
+        </li>
       {% endfor %}
 
     </ul>

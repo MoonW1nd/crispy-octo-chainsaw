@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: calc(100vw - 80px);
   }
 
   &-Item {
@@ -28,6 +29,10 @@
   }
 
   &-Row {
-    margin: 20px 0 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0 0 0 -40px;
+    padding: 20px 0 25px 40px;
   }
 }
