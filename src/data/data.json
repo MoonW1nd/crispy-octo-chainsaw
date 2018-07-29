@@ -3,11 +3,37 @@
     "title": "Яндекс Дом",
     "pageName": "summary",
     "mainNavigation": {
-      "items": ["Сводка", "Устройства", "Сценарии"],
+      "items": [
+        {
+          "title": "Сводка",
+          "isActive": true
+        },
+        {
+          "title": "Устройства",
+          "isActive": false
+        },
+        {
+          "title": "Сценарии",
+          "isActive": false
+        }
+      ],
       "role": "menu"
     },
     "footerNavigation": {
-      "items": ["Помощь", "Обратная связь", "Разработчикам", "Условия пользования"],
+      "items": [
+        {
+          "title": "Помощь"
+        },
+        {
+          "title": "Обратная связь"
+        },
+        {
+          "title": "Разработчикам"
+        },
+        {
+          "title": "Условия пользования"
+        }
+      ],
       "role": "contentinfo"
     },
     "content": {
@@ -49,42 +75,49 @@
           {
             "isActive": true,
             "type": "sun",
+            "tags": ["kitchen", "bulb"],
             "title": "Xiaomi Yeelight LED Smart Bulb",
             "description": "Включено"
           },
           {
             "isActive": false,
             "type": "sun",
+            "tags": ["cam"],
             "title": "D-Link Omna 180 Cam",
             "description": "Включится в 17:00"
           },
           {
             "isActive": false,
             "type": "temperature",
+            "tags": ["hall"],
             "title": "Elgato Eve Degree Connected",
             "description": "Включено до 17:00"
           },
           {
             "isActive": false,
             "type": "sun",
+            "tags": ["kitchen"],
             "title": "LIFX Mini Day & Dusk A60 E27",
             "description": "Включится в 17:00"
           },
           {
             "isActive": true,
             "type": "sun",
+            "tags": ["hall", "bulb"],
             "title": "Xiaomi Mi Air Purifier 2S",
             "description": "Включено"
           },
           {
             "isActive": false,
             "type": "sun",
+            "tags": ["bulb"],
             "title": "Philips Zhirui",
             "description": "Выключено"
           },
           {
             "isActive": true,
             "type": "temperature",
+            "tags": ["hall"],
             "title": "Philips Cooler",
             "description": "Начнет охлаждать в 16:30"
           }
@@ -93,22 +126,27 @@
           "filterTypes": [
             {
               "isActive": true,
+              "tag": "all",
               "value": "Все"
             },
             {
               "isActive": false,
+              "tag": "kitchen",
               "value": "Кухня"
             },
             {
               "isActive": false,
+              "tag": "hall",
               "value": "Зал"
             },
             {
               "isActive": false,
+              "tag": "bulb",
               "value": "Лампочки"
             },
             {
               "isActive": false,
+              "tag": "cam",
               "value": "Камеры"
             }
           ]

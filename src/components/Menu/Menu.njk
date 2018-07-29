@@ -4,8 +4,15 @@
   <ul class="Menu-ListItem">
 
     {% for item in data.items %}
-      <li class="Menu-Item">
-        <a href="#">{{ item }}</a>
+
+      {% if item.isActive %}
+        {% set state = "Menu-Item_state_active" %}
+      {% else %}
+        {% set state = '' %}
+      {% endif %}
+
+      <li class="Menu-Item {{state}}">
+        <a href="#">{{ item.title }}</a>
       </li>
     {% endfor %}
 

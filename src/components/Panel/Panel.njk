@@ -2,9 +2,16 @@
 
   {% if data.isActive %}
     {% set state = "Panel_state_active" %}
+  {% else %}
+    {% set state = "" %}
   {% endif %}
 
+  {% if data.tags %}
+  <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-tags={{ data.tags | join(",") }}>
+  {% else %}
   <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}">
+  {% endif %}
+
     <div class="Panel-IconWrapper">
       <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="icon-{{ data.type }}">
       <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="icon-{{ data.type }}">
