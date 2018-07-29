@@ -1,4 +1,5 @@
 {% from "components/Button/Button.njk" import Button %}
+{% from "components/DragController/DragController.njk" import DragController %}
 
 {% macro Modal(bem, data) %}
 
@@ -16,6 +17,7 @@
           <p class="Modal-Description">Включено</p>
         </header>
         <div class="Modal-Controller">
+          {{DragController({}, data.controllers.temperature)}}
         </div>
       </div>
 

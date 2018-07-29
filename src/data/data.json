@@ -2,6 +2,41 @@
   "index": {
     "title": "Яндекс Дом",
     "pageName": "summary",
+    "modal": {
+      "controllers": {
+        "temperature": {
+          "type": "temperature",
+          "presets": {
+            "filterTypes": [
+              {
+                "isActive": true,
+                "tag": "hand",
+                "value": "Вручную"
+              },
+              {
+                "isActive": false,
+                "tag": "cold",
+                "value": "Холодно"
+              },
+              {
+                "isActive": false,
+                "tag": "heat",
+                "value": " Тепло"
+              },
+              {
+                "isActive": false,
+                "tag": "hot",
+                "value": "Жарко"
+              }
+            ]
+          },
+          "boundaryCondition": {
+            "low": "-10",
+            "high": "+30"
+          }
+        }
+      }
+    },
     "mainNavigation": {
       "items": [
         {
