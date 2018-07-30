@@ -41,6 +41,7 @@
   &-IconWrapper {
     display: flex;
     position: absolute;
+    align-items: center;
     top: 0;
     right: 0;
   }
@@ -54,6 +55,11 @@
   &-Description {
     font-size: 0.88rem;
     margin: 6px 0 0 0;
+  }
+
+  &-Value {
+    font-size: 2.25rem;
+    margin: 0 15px 0 0;
   }
 
   &-Button {

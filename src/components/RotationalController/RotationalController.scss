@@ -1,0 +1,67 @@
+.RotationalController {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  &-Controller {
+    width: 221px;
+    height: 221px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-Scale {
+    background-image: url('../assets/Oval-reverse_v2.svg');
+    background-size: contain;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+  }
+
+  &-Pie {
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    top: 1px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: $accent-color;
+  }
+
+  &-IdicatorBlock {
+    width: 178px;
+    height: 178px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    border-radius: 50%;
+    border: 0;
+    background-color: #fefefe;
+    box-shadow: 0 2px 4px 0 rgba(134, 121, 71, 0.45);
+  }
+
+  &-Indicator {
+    border-right: 0;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 10px solid #{$text-color_primary};
+  }
+
+  &-WhiteSpace {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    background-color: $background-color_primary;
+    transform: perspective(4.7em) rotateX(40deg);
+    width: 101px;
+  }
+
+  &-Value {
+    font-size: 4.13rem;
+  }
+}

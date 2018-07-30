@@ -1,5 +1,6 @@
 {% from "components/Button/Button.njk" import Button %}
 {% from "components/RangeController/RangeController.njk" import RangeController %}
+{% from "components/RotationalController/RotationalController.njk" import RotationalController %}
 
 {% macro Modal(bem, data) %}
 
@@ -8,16 +9,17 @@
 
       <div class="Modal-Content">
         <header class="Modal-Header">
-          <h2 class="Modal-Title">Elgato Eve Degree Connected</h2>
+          <h2 class="Modal-Title"><b>Elgato Eve Degree Connected</b></h2>
 
           <div class="Modal-IconWrapper">
-            <p class="Modal-Value"></p>
+            <p class="Modal-Value"><b>+15</b></p>
             <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="">
           </div>
           <p class="Modal-Description">Включено</p>
         </header>
         <div class="Modal-Controller">
-          {{RangeController({}, data.controllers.temperature)}}
+          {# {{RangeController({}, data.controllers.temperature)}} #}
+          {{ RotationalController({}, {}) }}
         </div>
       </div>
 
