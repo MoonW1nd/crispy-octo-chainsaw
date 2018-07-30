@@ -1,0 +1,16 @@
+{% from "components/Filter/Filter.njk" import Filter as Presets %}
+
+{% macro RangeController(bem, data) %}
+
+  <div class="RagneController">
+    <div class="RangeController-Presets">
+      {{Presets({mix: "RangeController-Filter"}, data.presets)}}
+    </div>
+    <div class="RangeController-ControllerBlock">
+      <input type="range" class="RangeController-Scale">
+      <div class="RangeController-LowBoundaryCondition">{{ data.boundaryCondition.low }}</div>
+      <div class="RangeController-HightBoundaryCondition">{{ data.boundaryCondition.high }}</div>
+    </div>
+  </div>
+
+{% endmacro %}

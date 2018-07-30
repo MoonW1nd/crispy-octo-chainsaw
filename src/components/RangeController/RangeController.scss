@@ -1,0 +1,67 @@
+@mixin rangeTrack($background-image) {
+  appearance: none;
+  width: 580px;
+  height: 60px;
+  background-image: $background-image;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+@mixin sliderTumb {
+  appearance: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  top: 0;
+  left: 200px;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 3px solid rgba(51, 51, 51, 0.1);
+  box-shadow: 0 0 0 4px #{$background-color_primary};
+
+  &:active {
+    cursor: ew-resize;
+  }
+}
+
+.RangeController {
+  &-Scale {
+    @include rangeTrack(linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%));
+
+    &::-moz-range-track {
+      @include rangeTrack(linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%));
+    }
+
+    &::-webkit-slider-thumb {
+      @include sliderTumb();
+    }
+
+    &::-moz-range-thumb {
+      @include sliderTumb();
+    }
+  }
+
+  &-ControllerBlock {
+    margin-top: 25px;
+    color: $background-color_secondary;
+    font-size: 1.13rem;
+    position: relative;
+  }
+
+  &-LowBoundaryCondition,
+  &-HightBoundaryCondition {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &-LowBoundaryCondition {
+    left: 20px;
+  }
+
+  &-HightBoundaryCondition {
+    right: 20px;
+  }
+}
