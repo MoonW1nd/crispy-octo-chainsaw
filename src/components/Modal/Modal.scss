@@ -86,4 +86,8 @@
     width: 1px;
     white-space: nowrap;
   }
+
+  &_blure {
+    filter: blur(10px);
+  }
 }

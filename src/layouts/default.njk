@@ -5,18 +5,21 @@
   {% include "partials/head.njk" %}
 {% endblock %}
 
-<body class="Page-{{ pageName }}">
+<body>
   {% block Modal %}{% endblock %}
 
-  {% block Header %}
-    {% include "partials/Header/Header.njk" %}
-  {% endblock %}
+  <div class="Page-{{ pageName }}">
 
-  {% block PageContent %}{% endblock %}
+    {% block Header %}
+      {% include "partials/Header/Header.njk" %}
+    {% endblock %}
 
-  {% block name %}
-    {% include "partials/Footer/Footer.njk" %}
-  {% endblock %}
+    {% block PageContent %}{% endblock %}
+
+    {% block name %}
+      {% include "partials/Footer/Footer.njk" %}
+    {% endblock %}
+  </div>
 </body>
 <script src="./js/main.min.js"></script>
 
