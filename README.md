@@ -79,6 +79,7 @@
 - [browserify](https://www.npmjs.com/package/browserify): - поддержка модульной разработки JS
   - [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer)
   - [vinyl-source-stream](https://www.npmjs.com/package/vinyl-source-stream)
+- [hummer.js](https://hammerjs.github.io/) - использовал для кроссбраузерного распознавания жестов.
 
 Так же установил дополнительно пакеты [`husky`](https://www.npmjs.com/package/husky), [`lint-staged`](https://www.npmjs.com/package/lint-staged) и [`Prettier`](https://www.npmjs.com/package/prettier) для реализации автоматизированного приведения к единому стилю с помощью запуска `Prettier` в `precommit hook`.
 

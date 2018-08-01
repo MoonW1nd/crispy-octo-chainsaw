@@ -9,22 +9,18 @@
 
   &-ItemList {
     margin: 0;
+    transition: 0.5s linear transform;
   }
 
   &-Button {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 200px;
+    bottom: 12px;
+    right: 90px;
     border-width: 0;
-    border-top-left-radius: $border-radius_primary;
-    border-top-right-radius: $border-radius_primary;
-    height: 41px;
-    background-color: $background-color_secondary;
+    background: transparent;
 
     &:hover {
       cursor: pointer;
-      background: $background-color_primary;
     }
   }
 }
