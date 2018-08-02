@@ -29,7 +29,28 @@
     top: 1px;
     position: absolute;
     border-radius: 50%;
-    background-color: $accent-color;
+    background-color: $text-color_primary;
+    display: inline-block;
+    overflow: hidden;
+    background-image: linear-gradient(to right, transparent 50%, #{$accent-color} 0);
+    color: transparent;
+    text-align: center;
+    transform: rotate(-151deg);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50%;
+      height: 100%;
+      border-radius: 0 100% 100% 0 / 50%;
+      background-color: inherit;
+      transform-origin: left;
+      animation: spin 180s linear infinite, bg 360s step-end infinite;
+      animation-play-state: paused;
+      animation-delay: inherit;
+    }
   }
 
   &-IdicatorBlock {
@@ -37,6 +58,7 @@
     height: 178px;
     display: flex;
     justify-content: center;
+    position: relative;
     align-items: center;
     z-index: 2;
     border-radius: 50%;
@@ -46,16 +68,30 @@
   }
 
   &-Indicator {
-    border-right: 0;
-    border-bottom: 5px solid transparent;
-    border-top: 5px solid transparent;
-    border-left: 10px solid #{$text-color_primary};
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-151deg);
+    &:before {
+      content: ' ';
+      position: absolute;
+      left: 50%;
+      transform: rotate(-90deg);
+      border-right: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
+      border-left: 10px solid #{$text-color_primary};
+    }
   }
 
   &-WhiteSpace {
     position: absolute;
-    bottom: 0;
-    height: 40px;
+    bottom: -1px;
+    height: 43px;
     background-color: $background-color_primary;
     transform: perspective(4.7em) rotateX(40deg);
     width: 101px;
@@ -63,5 +99,16 @@
 
   &-Value {
     font-size: 4.13rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+@keyframes bg {
+  50% {
+    background: $accent-color;
   }
 }

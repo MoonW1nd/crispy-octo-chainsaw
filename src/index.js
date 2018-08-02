@@ -3,6 +3,7 @@ import Menu from './components/Menu/Menu.js';
 import Filter from './components/Filter/Filter';
 import Modal from './components/Modal/Modal';
 import { swipe } from './components/VerticalSlider/VerticalSlider';
+import RotationalController from './components/RotationalController/RotationalController.js';
 
 // Panels click heandler;
 // $('.Panel').on('click', Panel.toggleStateActive);
@@ -19,3 +20,5 @@ $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper
 
 const verticalSlider = document.querySelector('.StateWidget .VerticalSlider');
 swipe(verticalSlider);
+
+RotationalController.rotation(document.querySelector('.RotationalController'));
