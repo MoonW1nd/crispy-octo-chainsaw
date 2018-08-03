@@ -24,7 +24,7 @@
   }
 
   &-Filter {
-    margin-left: 13px;
+    margin-left: 15px;
     flex: 1;
   }
 
@@ -32,7 +32,13 @@
     overflow: hidden;
     box-sizing: border-box;
     width: 100vw;
-    margin: 0 0 0 -40px;
+    margin: 0 0 0 -39px;
     padding: 20px 0 25px 40px;
+  }
+
+  &-Switch {
+    position: relative;
+    top: 5px;
+    right: 11px;
   }
 }

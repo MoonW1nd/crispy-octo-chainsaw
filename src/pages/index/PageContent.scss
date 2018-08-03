@@ -1,8 +1,8 @@
 .PageContent {
-  padding: 30px 40px 25px 40px;
+  padding: 30px 44px 0 44px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: column;
   flex-grow: 1;
 
   &-MainTitle {
@@ -10,12 +10,25 @@
     font-size: 1.13rem;
   }
 
+  &-MainRow {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
   &-GridSlider,
   &-Main {
-    flex-basis: calc(50vw - 40px - 13px);
+    flex-basis: calc(50vw - 44px - 13px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-StateWidget {
+    flex-grow: 1;
   }
 
   &-RowSlider {
     flex-basis: 100%;
+    margin-top: 30px;
   }
 }

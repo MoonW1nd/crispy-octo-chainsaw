@@ -5,12 +5,13 @@
 {% macro PageContent(bem, data) %}
 
 <div class="PageContent">
-
-  <main class="PageContent-Main" role="main">
-    <h2 class="PageContent-MainTitle">Главное</h2>
-    {{ StateWidget({}, data.stateWidget) }}
-  </main>
-  {{ GridSlider({mix: 'PageContent-GridSlider'}, data.GridSlider) }}
+  <div class="PageContent-MainRow">
+    <main class="PageContent-Main" role="main">
+      <h2 class="PageContent-MainTitle">Главное</h2>
+      {{ StateWidget({mix: 'PageContent-StateWidget'}, data.stateWidget) }}
+    </main>
+    {{ GridSlider({mix: 'PageContent-GridSlider'}, data.GridSlider) }}
+  </div>
   {{ RowSlider({mix: 'PageContent-RowSlider'}, data.panelsRow) }}
 
 </div>
