@@ -88,6 +88,10 @@
   &_blure {
     filter: blur(10px);
   }
+
+  &_body {
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 650px) {

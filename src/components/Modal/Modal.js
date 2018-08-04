@@ -11,6 +11,8 @@ export function animationOpen(modal, pageWrapper) {
     modal.querySelector('.Modal-Description').innerHTML = description;
     modal.classList.remove('Modal_hidden');
     pageWrapper.classList.add('Modal_blure');
+    document.querySelector('body').classList.add('Modal_body');
+    modal.style.top = `${pageYOffset}px`;
     const modalIcon = modal.querySelector('.Modal-Icon');
     const { iconType } = target.dataset;
     modalIcon.src = `../assets/icon_${iconType}_active.svg`;
@@ -22,6 +24,8 @@ export function animationClose(modal, pageWrapper) {
   return event => {
     modal.classList.add('Modal_hidden');
     pageWrapper.classList.remove('Modal_blure');
+    document.querySelector('body').classList.remove('Modal_body');
+    modal.style.top = '';
   };
 }
 
