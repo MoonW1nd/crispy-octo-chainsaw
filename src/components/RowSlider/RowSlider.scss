@@ -42,3 +42,12 @@
     right: 11px;
   }
 }
+
+@media (max-width: 850px) {
+  .RowSlider {
+    &-Row {
+      margin: 0 0 0 -20px;
+      padding: 20px 0 25px 20px;
+    }
+  }
+}

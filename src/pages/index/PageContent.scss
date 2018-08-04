@@ -18,9 +18,19 @@
 
   &-GridSlider,
   &-Main {
-    flex-basis: calc(50vw - 44px - 13px);
     display: flex;
     flex-direction: column;
+  }
+
+  &-Main {
+    width: calc(50% - 15px / 2);
+    min-width: 485px;
+  }
+
+  &-GridSlider {
+    margin-left: 15px;
+    width: calc(50% - 15px / 2);
+    overflow: hidden;
   }
 
   &-StateWidget {
@@ -30,5 +40,30 @@
   &-RowSlider {
     flex-basis: 100%;
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 850px) {
+  .PageContent {
+    padding: 20px 14px 0 20px;
+
+    &-Main {
+      width: 100%;
+      flex-grow: 1;
+      min-width: auto;
+    }
+
+    &-MainRow {
+      flex-direction: column;
+    }
+
+    &-GridSlider {
+      width: 100%;
+      margin: 30px 0 0 0;
+    }
+
+    &-StateWidget {
+      flex-wrap: wrap;
+    }
   }
 }

@@ -14,7 +14,7 @@ $accent-color_dark: #ffcd00;
 $font-size_primary: 16px;
 $font-size_mobile: 11px;
 $border-radius_primary: 20px;
-$font-family: Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+$font-family: 'Arial', 'Helvetica', 'Nimbus Sans L', sans-serif;
 
 html {
   font-size: $font-size_primary;
@@ -36,4 +36,11 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 850px) {
+  .Page-summary {
+    bottom: auto;
+  }
 }

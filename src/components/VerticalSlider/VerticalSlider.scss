@@ -24,3 +24,15 @@
     }
   }
 }
+
+@media (max-width: 635px) {
+  .VerticalSlider {
+    &-ItemList {
+      display: flex;
+    }
+
+    &-Item {
+      margin: 0 0 0 15px;
+    }
+  }
+}
