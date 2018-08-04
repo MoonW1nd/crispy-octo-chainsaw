@@ -7,6 +7,7 @@
   justify-content: space-between;
   background-position: 50% 50%;
   border-radius: $border-radius_primary;
+  font-size: calc(11px + (16 - 11) * (100vw - 375px) / (1376 - 375));
   overflow: hidden;
 
   &-StateBlock {
@@ -15,13 +16,14 @@
 
   &-Greet {
     margin: 0;
-    font-size: 1.69rem;
+    font-size: 1.68em;
   }
 
   &-Description {
     margin: 4px 0 0 0;
-    font-size: 0.89rem;
+    font-size: 0.89em;
   }
+
   &-Weather {
     display: flex;
     margin-top: 26px;
@@ -33,5 +35,21 @@
 
   &-VerticalSlider {
     margin: 20px 20px 0 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .StateWidget {
+    &-Description {
+      font-size: 0.75rem;
+    }
+
+    &-Weather {
+      margin-top: 14px;
+    }
+
+    &-StateBlock {
+      padding: 20px 0 0 21px;
+    }
   }
 }

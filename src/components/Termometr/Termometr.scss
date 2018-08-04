@@ -1,23 +1,54 @@
 .Termometr {
+  font-size: calc(11px + (16 - 11) * (100vw - 375px) / (1376 - 375));
+
   &-Title {
     margin: 0 0 3px 0;
-    font-size: 0.88rem;
+    font-size: 0.88em;
     color: $text-color_secondary;
   }
 
   &-Value {
     margin: 0;
-    font-size: 2.25rem;
+    font-size: 2.25em;
     font-weight: bold;
   }
 
   &-Icon {
-    $icon-size: 26px;
+    $icon-size: calc(20px + (26 - 20) * (100vw - 375px) / (1376 - 375));
     width: $icon-size;
     height: $icon-size;
     display: inline-block;
     position: relative;
     top: 1px;
     right: 4px;
+
+    img {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .Termometr {
+    &-Icon {
+      font-size: 0.75rem;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &-Title {
+      font-size: 0.75rem;
+      margin: 0 0 5px 0;
+    }
+
+    &-Value {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
   }
 }
