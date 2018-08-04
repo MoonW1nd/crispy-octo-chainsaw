@@ -29,10 +29,12 @@
   .VerticalSlider {
     &-ItemList {
       display: flex;
+      padding: 0;
+      margin-left: 20px;
     }
 
     &-Item {
-      margin: 0 0 0 15px;
+      margin: 0 15px 0 0;
     }
   }
 }

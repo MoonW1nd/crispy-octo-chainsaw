@@ -49,5 +49,27 @@
       margin: 0 0 0 -20px;
       padding: 20px 0 25px 20px;
     }
+
+    &-Header {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .RowSlider {
+    &-Filter {
+      flex-grow: 0;
+
+      .Filter-Button_state_active {
+        .Filter-Arrow {
+          display: inline-block;
+        }
+      }
+
+      .Filter-Button:not(.Filter-Button_state_active) {
+        display: none;
+      }
+    }
   }
 }

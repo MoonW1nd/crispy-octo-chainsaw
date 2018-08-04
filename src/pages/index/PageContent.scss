@@ -45,7 +45,11 @@
 
 @media (max-width: 850px) {
   .PageContent {
-    padding: 20px 14px 0 20px;
+    padding: 3px 20px 0 20px;
+
+    &-MainTitle {
+      display: none;
+    }
 
     &-Main {
       width: 100%;
@@ -60,6 +64,7 @@
     &-GridSlider {
       width: 100%;
       margin: 30px 0 0 0;
+      overflow: visible;
     }
 
     &-StateWidget {

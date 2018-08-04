@@ -6,15 +6,30 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  &-Logo {
-    margin-left: 45px;
-  }
+  padding: 0 45px;
+  flex-shrink: 0;
 
   &-Menu {
     margin-left: 49px;
     font-weight: bold;
     position: relative;
     top: 2px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Header {
+    justify-content: space-between;
+    padding: 0 20px;
+    border: 0;
+    height: 65px;
+
+    .Menu-Icon {
+      display: inline-block;
+    }
+
+    .Menu-ListItem {
+      display: none;
+    }
   }
 }

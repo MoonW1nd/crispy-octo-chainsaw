@@ -6,6 +6,17 @@
     display: flex;
   }
 
+  &-Arrow {
+    width: 5px;
+    height: 5px;
+    transform: rotate(-45deg) translatex(25%);
+    margin-left: 4px;
+    border: 2px solid transparent;
+    border-left-color: $text-color_primary;
+    border-bottom-color: $text-color_primary;
+    display: none;
+  }
+
   &-Button {
     font-size: 0.81rem;
     margin: 0 10px 0 0;
