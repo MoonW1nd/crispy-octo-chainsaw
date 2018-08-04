@@ -1,6 +1,5 @@
 .StateWidget {
   background-image: url('/assets/bg@2x.png');
-  height: calc(50vh - 20px - 1.13rem);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -50,6 +49,10 @@
 
     &-StateBlock {
       padding: 20px 0 0 21px;
+    }
+
+    &-VerticalSlider {
+      margin: 0;
     }
   }
 }

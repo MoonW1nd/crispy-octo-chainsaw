@@ -46,6 +46,7 @@
 @media (max-width: 850px) {
   .PageContent {
     padding: 3px 20px 0 20px;
+    display: block;
 
     &-MainTitle {
       display: none;
@@ -71,6 +72,10 @@
     &-StateWidget {
       flex-wrap: wrap;
       min-height: 282px;
+    }
+
+    &-RowSlider {
+      margin-top: 10px;
     }
   }
 }

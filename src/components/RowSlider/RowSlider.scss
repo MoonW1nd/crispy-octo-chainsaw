@@ -47,7 +47,7 @@
   .RowSlider {
     &-Row {
       margin: 0 0 0 -20px;
-      padding: 20px 0 25px 20px;
+      padding: 14px 0 25px 20px;
     }
 
     &-Header {
@@ -60,6 +60,9 @@
   .RowSlider {
     &-Filter {
       flex-grow: 0;
+      position: relative;
+      top: -2px;
+      left: 5px;
 
       .Filter-Button_state_active {
         .Filter-Arrow {
