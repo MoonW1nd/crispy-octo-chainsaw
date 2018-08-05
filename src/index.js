@@ -6,6 +6,7 @@ import VerticalSlider from './components/VerticalSlider/VerticalSlider.js';
 import RotationalController from './components/RotationalController/RotationalController.js';
 import GridSlider from './components/GridSlider/GridSlider.js';
 import RowSlider from './components/RowSlider/RowSlider';
+import { GridSliderSwitch } from './components/GridSlider/GridSlider.js';
 
 // Panels click heandler;
 $('.GridSlider .Panel').on('click', Panel.toggleStateActive);
@@ -23,5 +24,18 @@ $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper
 VerticalSlider.swipe(document.querySelector('.StateWidget .VerticalSlider'));
 GridSlider.swipe(document.querySelector('.PageContent-MainRow .GridSlider'));
 RowSlider.swipe(document.querySelector('.RowSlider .RowSlider-Row'));
+
+const gridSliderSwitch = new GridSliderSwitch(
+  document.querySelector('.GridSlider'),
+  document.querySelector('.GridSlider-Switch')
+);
+gridSliderSwitch.gridManager();
+
+document
+  .querySelector('.GridSlider-Switch .Arrow_direction_left')
+  .addEventListener('click', gridSliderSwitch.moveLeft);
+document
+  .querySelector('.GridSlider-Switch .Arrow_direction_right')
+  .addEventListener('click', gridSliderSwitch.moveRight);
 
 RotationalController.rotation(document.querySelector('.RotationalController'));

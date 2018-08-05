@@ -11,7 +11,7 @@
   <div class="GridSlider-Grid">
     <ul class="GridSlider-ItemsList">
       {% for item in data.panels %}
-        <li class="GridSlider-Item">
+        <li class="GridSlider-Item" data-id={{loop.index}}>
           {{ Panel({mod: "Panel_size_small"}, item)}}
         </li>
       {% endfor %}

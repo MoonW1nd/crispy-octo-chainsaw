@@ -12,18 +12,19 @@
     margin: 0 -15px 0 0;
     padding: 0;
     transition: 0.5s linear transform;
+
+    &.ItemList_clone {
+      position: absolute;
+    }
   }
 
   &-Item {
     margin: 0 15px 15px 0;
-
-    &:last-child {
-      margin: 0 0 0 0;
-    }
   }
 
   &-Grid {
     display: flex;
+    position: relative;
     height: calc(100vh - 430px);
   }
 
@@ -48,6 +49,10 @@
 
     &-ItemsList {
       flex-wrap: nowrap;
+    }
+
+    &-Item:last-child {
+      margin: 0 0 0 0;
     }
   }
 }
