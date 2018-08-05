@@ -36,80 +36,119 @@ export class GridSliderSwitch {
   constructor(slider, switchElement) {
     this.slider = slider;
     this.itemList = slider.querySelector(`.GridSlider-ItemsList`);
-    this.itemListClones = [];
+    this.itemLists = [this.itemList];
     this.currentItemsList = this.itemList;
-    this.lastItemsList = this._createClone();
+    this.currentItemsListIndex = 0;
     this.currentTransform = 0;
     this.switchElement = switchElement;
     this.listWrapper = slider.querySelector(`.GridSlider-Grid`);
+    this.leftArrow = this.switchElement.querySelector('.Arrow_direction_left');
+    this.rightArrow = this.switchElement.querySelector('.Arrow_direction_right');
+    this.switchActive = false;
 
     // bind
     this.gridManager = this.gridManager.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
     this.moveRight = this.moveRight.bind(this);
+    this.resize = this.resize.bind(this);
   }
 
   gridManager() {
     const items = this.itemList.children;
     const itemListBox = getBox(this.itemList);
 
-    this.itemListClones.forEach((clone, index) => {
-      clone.style.left = `${itemListBox.width * (index + 1)}px`;
-      this.listWrapper.appendChild(clone);
-    });
-
-    let switchIsActive = false;
-    let cloneCount = 0;
-
+    // динамическое создание дополнительных контейнеров
+    this.switchActive = false;
+    let itemListCount = 1;
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       const itemsBox = getBox(item);
       if (itemsBox.top + itemsBox.height > itemListBox.top + itemListBox.height) {
-        this.itemListClones[cloneCount].appendChild(item);
+        if (this.itemLists.length === 1) {
+          let clone = this._createClone();
+          clone.style.left = `${itemListBox.width}px`;
+          this.listWrapper.appendChild(clone);
+        }
+        this.itemLists[itemListCount].appendChild(item);
 
         let itemBox = getBox(item);
         if (itemBox.top + itemBox.height > itemListBox.top + itemListBox.height) {
           const newClone = this._createClone();
-          newClone.style.left = `${itemListBox.width * this.itemListClones.length}px`;
+          newClone.style.left = `${itemListBox.width * (this.itemLists.length - 1)}px`;
           this.listWrapper.appendChild(newClone);
           newClone.appendChild(item);
-          cloneCount += 1;
+          itemListCount += 1;
         }
 
-        switchIsActive = true;
+        this.switchActive = true;
         i--;
       }
     }
+    this._arrowManager();
+  }
 
-    if (switchIsActive) {
-      this.switchElement.classList.add('Switch_active');
+  resize() {
+    const items = Array.prototype.slice.call(this.slider.querySelectorAll('.GridSlider-Item'));
+    items.forEach(element => this.itemList.appendChild(element));
+    this.itemLists.forEach((list, index) => {
+      if (index !== 0) {
+        list.remove();
+      }
+    });
+    this.itemList.style.transform = `translateX(0px)`;
+    this.currentTransform = 0;
+    this.itemLists.length = 1;
+    this.gridManager();
+  }
+
+  _arrowManager() {
+    if (this.currentItemsList === this.listWrapper.firstElementChild && this.switchActive) {
+      this.leftArrow.classList.add('Arrow_active');
+      this.rightArrow.classList.remove('Arrow_active');
+    } else if (this.currentItemsList === this.listWrapper.lastElementChild) {
+      this.leftArrow.classList.remove('Arrow_active');
+      this.rightArrow.classList.add('Arrow_active');
+    } else if (this.switchActive) {
+      this.leftArrow.classList.add('Arrow_active');
+      this.rightArrow.classList.add('Arrow_active');
     } else {
-      this.switchElement.classList.remove('Switch_active');
+      this.leftArrow.classList.remove('Arrow_active');
+      this.rightArrow.classList.remove('Arrow_active');
     }
   }
 
   moveLeft(event) {
+    if (!this.leftArrow.classList.contains('Arrow_active')) return;
+
     const listWrapperBox = getBox(this.listWrapper);
     let list = this.listWrapper.querySelectorAll('.GridSlider-ItemsList');
     list = Array.prototype.slice.call(list);
     this.currentTransform -= listWrapperBox.width + 15;
 
     list.forEach(element => (element.style.transform = `translateX(${this.currentTransform}px)`));
+    this.currentItemsListIndex += 1;
+    this.currentItemsList = this.itemLists[this.currentItemsListIndex];
+    this._arrowManager();
   }
 
   moveRight(event) {
+    if (!this.rightArrow.classList.contains('Arrow_active')) return;
+
     const listWrapperBox = getBox(this.listWrapper);
     let list = this.listWrapper.querySelectorAll('.GridSlider-ItemsList');
     list = Array.prototype.slice.call(list);
     this.currentTransform += listWrapperBox.width + 15;
 
     list.forEach(element => (element.style.transform = `translateX(${this.currentTransform}px)`));
+    this.currentItemsListIndex -= 1;
+    this.currentItemsList = this.itemLists[this.currentItemsListIndex];
+    this._arrowManager();
   }
 
   _createClone() {
     const clone = this.itemList.cloneNode();
     clone.classList.add('ItemList_clone');
-    this.itemListClones.push(clone);
+    this.itemLists.push(clone);
     return clone;
   }
 }

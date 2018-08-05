@@ -39,3 +39,23 @@ document
   .addEventListener('click', gridSliderSwitch.moveRight);
 
 RotationalController.rotation(document.querySelector('.RotationalController'));
+
+// оптимизация resize событий
+(function() {
+  window.addEventListener('resize', resizeThrottler, false);
+
+  var resizeTimeout;
+  function resizeThrottler() {
+    if (!resizeTimeout) {
+      resizeTimeout = setTimeout(function() {
+        resizeTimeout = null;
+        actualResizeHandler();
+        // The actualResizeHandler will execute at a rate of 15fps
+      }, 66);
+    }
+  }
+
+  function actualResizeHandler() {
+    gridSliderSwitch.resize();
+  }
+})();
