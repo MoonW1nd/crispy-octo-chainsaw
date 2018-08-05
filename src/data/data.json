@@ -164,7 +164,7 @@
             "description": "Включится в 17:00"
           },
           {
-            "isActive": false,
+            "isActive": true,
             "type": "temperature",
             "controller": "range",
             "currentValue": 15,
@@ -200,7 +200,7 @@
             "description": "Выключено"
           },
           {
-            "isActive": true,
+            "isActive": false,
             "type": "temperature",
             "controller": "range",
             "currentValue": 15,

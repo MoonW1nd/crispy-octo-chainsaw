@@ -25,12 +25,13 @@
   }
 }
 
-@media (max-width: 635px) {
+@media (max-width: 650px) {
   .VerticalSlider {
     &-ItemList {
       display: flex;
       padding: 0;
       margin-left: 21px;
+      margin-bottom: 20px;
     }
 
     &-Item {

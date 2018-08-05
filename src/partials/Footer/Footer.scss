@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  flex-shrink: 0;
 
   &-Menu {
     margin-left: 45px;

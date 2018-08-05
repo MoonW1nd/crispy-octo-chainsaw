@@ -41,6 +41,6 @@ body {
 
 @media (max-width: 850px) {
   .Page-summary {
-    bottom: auto;
+    overflow-y: scroll;
   }
 }

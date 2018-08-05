@@ -46,7 +46,8 @@
 @media (max-width: 850px) {
   .PageContent {
     padding: 3px 20px 0 20px;
-    display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
 
     &-MainTitle {
       display: none;
@@ -56,10 +57,12 @@
       width: 100%;
       flex-grow: 1;
       min-width: auto;
+      flex-shrink: 0;
     }
 
     &-MainRow {
       flex-direction: column;
+      flex-shrink: 0;
     }
 
     &-GridSlider {
@@ -72,6 +75,7 @@
     &-StateWidget {
       flex-wrap: wrap;
       min-height: 282px;
+      align-content: space-between;
     }
 
     &-RowSlider {

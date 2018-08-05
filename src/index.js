@@ -1,12 +1,12 @@
 import Panel from './components/Panel/Panel.js';
 import Menu from './components/Menu/Menu.js';
-import Filter from './components/Filter/Filter';
-import Modal from './components/Modal/Modal';
-import { swipe } from './components/VerticalSlider/VerticalSlider';
+import Filter from './components/Filter/Filter.js';
+import Modal from './components/Modal/Modal.js';
+import { swipe } from './components/VerticalSlider/VerticalSlider.js';
 import RotationalController from './components/RotationalController/RotationalController.js';
 
 // Panels click heandler;
-// $('.Panel').on('click', Panel.toggleStateActive);
+$('.GridSlider .Panel').on('click', Panel.toggleStateActive);
 $('.Header-Menu .Menu-Item').on('click', Menu.toggleStateActive);
 const filteredPanels = $('.RowSlider-ItemsList .Panel');
 $('.RowSlider-Filter .Filter-Button').on('click', Filter.toggleFilter(filteredPanels));
