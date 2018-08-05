@@ -8,6 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    align-content: flex-start;
     margin: 0 -15px 0 0;
     padding: 0;
     transition: 0.5s linear transform;
@@ -23,6 +24,7 @@
 
   &-Grid {
     display: flex;
+    height: calc(100vh - 430px);
   }
 
   &-Header {
@@ -40,6 +42,10 @@
 
 @media (max-width: 850px) {
   .GridSlider {
+    &-Grid {
+      height: auto;
+    }
+
     &-ItemsList {
       flex-wrap: nowrap;
     }

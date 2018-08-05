@@ -19,7 +19,7 @@
         </header>
         <div class="Modal-Controller">
           {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-TemperatureController' }, data.controllers.temperature) }}
-          {{ RangeController({ mod: 'controllers', mix: 'Modal-LightController' }, data.controllers.light) }}
+          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-LightController' }, data.controllers.light) }}
           {{ RotationalController({ mod: 'Modal_hidden', mix: 'Modal-FloorController' }, data.controllers.floor) }}
         </div>
       </div>

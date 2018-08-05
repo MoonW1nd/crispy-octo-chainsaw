@@ -5,7 +5,6 @@ export function swipe(slider) {
   let itemList = slider.querySelector('.RowSlider-ItemsList');
   let manager = new Hammer.Manager(itemList);
   let Pan = new Hammer.Pan();
-  console.log(slider, itemList);
 
   manager.add(Pan);
   const panHandler = new PanHandler(slider, itemList);

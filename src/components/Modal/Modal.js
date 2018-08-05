@@ -1,3 +1,12 @@
+function getCoords(elem) {
+  var box = elem.getBoundingClientRect();
+
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset,
+  };
+}
+
 export function animationOpen(modal, pageWrapper) {
   return event => {
     let { target } = event;
@@ -39,7 +48,47 @@ export function animationOpen(modal, pageWrapper) {
     if (controller === 'range')
       controllerElement.querySelector('input[type="range"]').setAttribute('value', currentValue);
 
+    // ANIMATION
+    const targetClone = target.cloneNode();
+    targetClone.classList.add('Panel-Clone');
+    const targetCoords = getCoords(target);
+    modal.setAttribute('data-card-top', targetCoords.top);
+    modal.setAttribute('data-card-left', targetCoords.left);
+    const modalContent = modal.querySelector('.Modal-Content');
+    const modalForm = modal.querySelector('.Modal-Form');
+
+    modalForm.style.opacity = '0';
+    Object.assign(targetClone.style, {
+      position: 'absolute',
+      zIndex: '99',
+      transition: '0.2s linear all',
+      left: `${targetCoords.left}px`,
+      top: `${targetCoords.top}px`,
+    });
+
+    document.querySelector('body').appendChild(targetClone);
     modal.classList.remove('Modal_hidden');
+
+    const modalContentSize = modalContent.getBoundingClientRect();
+    const modalContentCoords = getCoords(modalContent);
+
+    Object.assign(targetClone.style, {
+      width: `${modalContentSize.width}px`,
+      height: `${modalContentSize.height}px`,
+      top: `${modalContentCoords.top}px`,
+      left: `${modalContentCoords.left}px`,
+    });
+
+    setTimeout(() => {
+      modalForm.style.transition = '0.2s linear opacity';
+      modalForm.style.opacity = 1;
+      Object.assign(targetClone.style, {
+        transition: '0.3s linear all',
+        opacity: 0,
+        pointerEvents: 'none',
+      });
+    }, 210);
+
     pageWrapper.classList.add('Modal_blure');
     document.querySelector('body').classList.add('Modal_body');
     modal.style.top = `${pageYOffset}px`;
@@ -48,13 +97,43 @@ export function animationOpen(modal, pageWrapper) {
 
 export function animationClose(modal, pageWrapper) {
   return event => {
-    modal.classList.add('Modal_hidden');
-    let controllers = modal.querySelector('.Modal-Controller').children;
-    controllers = Array.prototype.slice.call(controllers);
-    controllers.forEach(element => element.classList.add('Modal_hidden'));
-    pageWrapper.classList.remove('Modal_blure');
-    document.querySelector('body').classList.remove('Modal_body');
-    modal.style.top = '';
+    // ANIMATION
+    const targetCoords = {
+      top: modal.dataset.cardTop,
+      left: modal.dataset.cardLeft,
+    };
+    const targetClone = document.documentElement.querySelector('.Modal_body .Panel-Clone');
+    const modalContent = modal.querySelector('.Modal-Content');
+    const modalForm = modal.querySelector('.Modal-Form');
+
+    modalForm.style.opacity = '0';
+    targetClone.style.opacity = '1';
+
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        Object.assign(targetClone.style, {
+          left: `${targetCoords.left}px`,
+          top: `${targetCoords.top}px`,
+          transition: '0.2s linear all',
+          width: '200px',
+          height: '120px',
+        });
+        resolve();
+      }, 200);
+    });
+
+    promise.then(() => {
+      setTimeout(() => {
+        targetClone.remove();
+        modal.classList.add('Modal_hidden');
+        let controllers = modal.querySelector('.Modal-Controller').children;
+        controllers = Array.prototype.slice.call(controllers);
+        controllers.forEach(element => element.classList.add('Modal_hidden'));
+        pageWrapper.classList.remove('Modal_blure');
+        document.querySelector('body').classList.remove('Modal_body');
+        modal.style.top = '';
+      }, 200);
+    });
   };
 }
 
