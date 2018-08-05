@@ -7,9 +7,15 @@
   {% endif %}
 
   {% if data.tags %}
-  <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data.type }} data-tags={{ data.tags | join(",") }}>
+    <button
+      class="Panel {{bem.mod}} {{bem.mix}} {{state}}"
+      data-icon-type={{ data.type }}
+      data-tags={{ data.tags | join(",") }}
+      data-controller={{ data.controller }}
+      data-current-value={{ data.currentValue }}
+    >
   {% else %}
-  <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }}>
+    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }}>
   {% endif %}
 
     <div class="Panel-IconWrapper">

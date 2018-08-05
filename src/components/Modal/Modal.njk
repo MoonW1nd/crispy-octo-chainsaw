@@ -4,28 +4,29 @@
 
 {% macro Modal(bem, data) %}
 
-  <div class="Modal {{bem.mix}} {{bem.mod}} Modal_hidden" tabindex="-1" aria-hidden="true" role="dialog">
+  <div class="Modal {{ bem.mix }} {{ bem.mod }} Modal_hidden" tabindex="-1" aria-hidden="true" role="dialog">
     <section class="Modal-Form">
 
       <div class="Modal-Content">
         <header class="Modal-Header">
-          <h2 class="Modal-Title"><b>Elgato Eve Degree Connected</b></h2>
+          <h2 class="Modal-Title"></h2>
 
           <div class="Modal-IconWrapper">
-            <p class="Modal-Value"><b>+15</b></p>
+            <p class="Modal-Value"></p>
             <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="">
           </div>
-          <p class="Modal-Description">Включено</p>
+          <p class="Modal-Description"></p>
         </header>
         <div class="Modal-Controller">
-          {{RangeController({}, data.controllers.temperature)}}
-          {# {{ RotationalController({}, {}) }} #}
+          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-TemperatureController' }, data.controllers.temperature) }}
+          {{ RangeController({ mod: 'controllers', mix: 'Modal-LightController' }, data.controllers.light) }}
+          {{ RotationalController({ mod: 'Modal_hidden', mix: 'Modal-FloorController' }, data.controllers.floor) }}
         </div>
       </div>
 
       <div class="Modal-ButtonBlock">
-        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "confirm" })}}
-        {{ Button({mix: "Modal-Button"}, { content: "Закрыть" })}}
+        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "confirm" }) }}
+        {{ Button({mix: "Modal-Button"}, { content: "Закрыть" }) }}
       </div>
 
     </section>

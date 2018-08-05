@@ -2,14 +2,29 @@
 
 {% macro RangeController(bem, data) %}
 
-  <div class="RangeController">
+  <div class="RangeController {{ bem.mod }}  {{bem.mix}}">
     <div class="RangeController-Presets">
       {{Presets({mix: "RangeController-Filter"}, data.presets)}}
     </div>
     <div class="RangeController-ControllerBlock">
-      <input type="range" class="RangeController-Scale">
-      <div class="RangeController-LowBoundaryCondition">{{ data.boundaryCondition.low }}</div>
-      <div class="RangeController-HightBoundaryCondition">{{ data.boundaryCondition.high }}</div>
+      <input
+        type="range"
+        class="RangeController-Scale"
+        min="{{ data.boundaryCondition.low }}"
+        max="{{ data.boundaryCondition.high }}"
+      />
+
+      {% if data.type == "sun" %}
+          <div class="RangeController-LowBoundaryCondition">
+            <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="low-sun-icon">
+          </div>
+          <div class="RangeController-HightBoundaryCondition">
+            <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="hight-sun-icon">
+          </div>
+        {% else %}
+          <div class="RangeController-LowBoundaryCondition">{{ data.boundaryCondition.low }}</div>
+          <div class="RangeController-HightBoundaryCondition">{{ data.boundaryCondition.high }}</div>
+        {% endif %}
     </div>
   </div>
 

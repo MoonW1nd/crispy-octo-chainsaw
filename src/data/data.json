@@ -15,17 +15,17 @@
               },
               {
                 "isActive": false,
-                "tag": "cold",
+                "tag": "low",
                 "value": "Холодно"
               },
               {
                 "isActive": false,
-                "tag": "heat",
+                "tag": "medium",
                 "value": " Тепло"
               },
               {
                 "isActive": false,
-                "tag": "hot",
+                "tag": "large",
                 "value": "Жарко"
               }
             ]
@@ -33,6 +33,44 @@
           "boundaryCondition": {
             "low": "-10",
             "high": "+30"
+          }
+        },
+        "light": {
+          "type": "sun",
+          "presets": {
+            "filterTypes": [
+              {
+                "isActive": true,
+                "tag": "hand",
+                "value": "Вручную"
+              },
+              {
+                "isActive": false,
+                "tag": "low",
+                "value": "Дневной свет"
+              },
+              {
+                "isActive": false,
+                "tag": "medium",
+                "value": "Вечерний свет"
+              },
+              {
+                "isActive": false,
+                "tag": "large",
+                "value": "Рассвет"
+              }
+            ]
+          },
+          "boundaryCondition": {
+            "low": "0",
+            "high": "100"
+          }
+        },
+        "floor": {
+          "type": "temperature",
+          "boundaryCondition": {
+            "low": "5",
+            "high": "30"
           }
         }
       }
@@ -110,6 +148,8 @@
           {
             "isActive": true,
             "type": "sun",
+            "controller": "range",
+            "currentValue": 20,
             "tags": ["kitchen", "bulb"],
             "title": "Xiaomi Yeelight LED Smart Bulb",
             "description": "Включено"
@@ -117,6 +157,8 @@
           {
             "isActive": false,
             "type": "sun",
+            "controller": "range",
+            "currentValue": 40,
             "tags": ["cam"],
             "title": "D-Link Omna 180 Cam",
             "description": "Включится в 17:00"
@@ -124,6 +166,8 @@
           {
             "isActive": false,
             "type": "temperature",
+            "controller": "range",
+            "currentValue": 15,
             "tags": ["hall"],
             "title": "Elgato Eve Degree Connected",
             "description": "Включено до 17:00"
@@ -131,20 +175,26 @@
           {
             "isActive": false,
             "type": "sun",
-            "tags": ["kitchen"],
+            "controller": "range",
+            "currentValue": 70,
+            "tags": ["hall", "bulb"],
             "title": "LIFX Mini Day & Dusk A60 E27",
             "description": "Включится в 17:00"
           },
           {
             "isActive": true,
             "type": "sun",
-            "tags": ["hall", "bulb"],
+            "controller": "switch",
+            "currentValue": true,
+            "tags": ["kitchen"],
             "title": "Xiaomi Mi Air Purifier 2S",
             "description": "Включено"
           },
           {
             "isActive": false,
             "type": "sun",
+            "controller": "range",
+            "currentValue": 50,
             "tags": ["bulb"],
             "title": "Philips Zhirui",
             "description": "Выключено"
@@ -152,9 +202,20 @@
           {
             "isActive": true,
             "type": "temperature",
+            "controller": "range",
+            "currentValue": 15,
             "tags": ["hall"],
             "title": "Philips Cooler",
             "description": "Начнет охлаждать в 16:30"
+          },
+          {
+            "isActive": true,
+            "type": "temperature",
+            "currentValue": 25,
+            "controller": "rotation",
+            "tags": ["hall"],
+            "title": "Xiaomi Warm Floor",
+            "description": "Включено"
           }
         ],
         "filter": {
@@ -206,27 +267,24 @@
         "verticalSlider": {
           "panels": [
             {
-              "isActive": false,
               "type": "temperature",
               "title": "Philips Cooler",
               "description": "Начнет охлаждать в 16:30"
             },
             {
-              "isActive": true,
-              "type": "sun",
-              "title": "Xiaomi Yeelight LED Smart Bulb",
-              "description": "Включится в 17:00"
-            },
-            {
-              "isActive": false,
               "type": "sun",
               "title": "Xiaomi Yeelight LED Smart Bulb",
               "description": "Включится в 17:00"
             },
             {
               "type": "temperature",
-              "title": "Philips Cooler",
-              "description": "Начнет охлаждать в 16:30"
+              "title": "Xiaomi Mi Air Purifier 2S",
+              "description": "Включится в 18:00"
+            },
+            {
+              "type": "sun",
+              "title": "Philips Zhirui",
+              "description": "Включится в 21:00"
             }
           ]
         }

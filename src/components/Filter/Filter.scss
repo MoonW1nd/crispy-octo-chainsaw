@@ -6,6 +6,10 @@
     display: flex;
   }
 
+  &-Type {
+    flex-shrink: 0;
+  }
+
   &-Arrow {
     width: 5px;
     height: 5px;
