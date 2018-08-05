@@ -2,8 +2,10 @@ import Panel from './components/Panel/Panel.js';
 import Menu from './components/Menu/Menu.js';
 import Filter from './components/Filter/Filter.js';
 import Modal from './components/Modal/Modal.js';
-import { swipe } from './components/VerticalSlider/VerticalSlider.js';
+import VerticalSlider from './components/VerticalSlider/VerticalSlider.js';
 import RotationalController from './components/RotationalController/RotationalController.js';
+import GridSlider from './components/GridSlider/GridSlider.js';
+import RowSlider from './components/RowSlider/RowSlider';
 
 // Panels click heandler;
 $('.GridSlider .Panel').on('click', Panel.toggleStateActive);
@@ -18,7 +20,8 @@ const pageWrapper = document.querySelector('.Page-summary');
 buttonClose.addEventListener('click', Modal.animationClose(elementModal, pageWrapper));
 $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper));
 
-const verticalSlider = document.querySelector('.StateWidget .VerticalSlider');
-swipe(verticalSlider);
+VerticalSlider.swipe(document.querySelector('.StateWidget .VerticalSlider'));
+GridSlider.swipe(document.querySelector('.PageContent-MainRow .GridSlider'));
+RowSlider.swipe(document.querySelector('.RowSlider .RowSlider-Row'));
 
 RotationalController.rotation(document.querySelector('.RotationalController'));

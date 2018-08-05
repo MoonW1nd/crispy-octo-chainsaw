@@ -7,6 +7,7 @@
   background-position: 50% 50%;
   border-radius: $border-radius_primary;
   font-size: calc(11px + (16 - 11) * (100vw - 375px) / (1376 - 375));
+  height: calc(100vh - 430px);
   overflow: hidden;
 
   &-StateBlock {
@@ -37,8 +38,15 @@
   }
 }
 
+@media (max-width: 850px) {
+  .StateWidget {
+    height: calc(100vh - 490px);
+  }
+}
+
 @media (max-width: 650px) {
   .StateWidget {
+    height: auto;
     &-Description {
       font-size: 0.75rem;
     }

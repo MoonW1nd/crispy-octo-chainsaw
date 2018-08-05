@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    transition: 0.5s linear transform;
   }
 
   &-Header {
@@ -16,6 +17,10 @@
   &-Item {
     margin: 0 15px 0 0;
     padding: 0;
+
+    &:last-child {
+      margin: 0;
+    }
   }
 
   &-Title {
@@ -33,6 +38,7 @@
     box-sizing: border-box;
     width: 100vw;
     margin: 0 0 0 -39px;
+    display: flex;
     padding: 20px 0 25px 40px;
   }
 
