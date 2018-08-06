@@ -1,5 +1,6 @@
 .VerticalSlider {
   position: relative;
+  flex-shrink: 0;
 
   &-Item {
     margin: 0 0 15px 0;

@@ -27,9 +27,9 @@ export function rotation(rotationController) {
   function setAngle(pie, indicator) {
     var p = pie.textContent;
     pie.style.animationDelay = '-' + parseFloat(p) + 's';
-    indicator.style.transform = `rotate(${parseFloat(p) -
-      initialRotateOffset +
-      DEG_DIFF_FIX * 2}deg)`;
+    pie.style['WebkitAnimationDelay'] = '-' + parseFloat(p) + 's';
+    let rotationAngle = parseFloat(p) - initialRotateOffset + DEG_DIFF_FIX * 2;
+    indicator.style.transform = `rotate(${rotationAngle}deg)`;
   }
 
   manager.add(Pan);

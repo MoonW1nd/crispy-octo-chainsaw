@@ -67,6 +67,7 @@ export class GridSliderSwitch {
         if (this.itemLists.length === 1) {
           let clone = this._createClone();
           clone.style.left = `${itemListBox.width}px`;
+          clone.style.width = `${itemListBox.width}px`;
           this.listWrapper.appendChild(clone);
         }
         this.itemLists[itemListCount].appendChild(item);
@@ -98,20 +99,31 @@ export class GridSliderSwitch {
     this.itemList.style.transform = `translateX(0px)`;
     this.currentTransform = 0;
     this.itemLists.length = 1;
+    this.switchActive = false;
+    this.leftArrow.classList.remove('Arrow_active');
+    this.rightArrow.classList.remove('Arrow_active');
+    this.currentItemsList = this.listWrapper.firstElementChild;
     this.gridManager();
   }
 
   _arrowManager() {
     if (this.currentItemsList === this.listWrapper.firstElementChild && this.switchActive) {
+      console.log('1');
       this.leftArrow.classList.add('Arrow_active');
       this.rightArrow.classList.remove('Arrow_active');
-    } else if (this.currentItemsList === this.listWrapper.lastElementChild) {
+    } else if (
+      this.currentItemsList === this.listWrapper.lastElementChild &&
+      this.itemLists.length !== 1
+    ) {
+      console.log('2');
       this.leftArrow.classList.remove('Arrow_active');
       this.rightArrow.classList.add('Arrow_active');
     } else if (this.switchActive) {
+      console.log('3');
       this.leftArrow.classList.add('Arrow_active');
       this.rightArrow.classList.add('Arrow_active');
     } else {
+      console.log('4');
       this.leftArrow.classList.remove('Arrow_active');
       this.rightArrow.classList.remove('Arrow_active');
     }
