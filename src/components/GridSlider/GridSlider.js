@@ -7,7 +7,7 @@ export function swipe(slider) {
   let Pan = new Hammer.Pan();
 
   manager.add(Pan);
-  const panHandler = new PanHandler(slider, itemList);
+  const panHandler = new PanHandler(slider, itemList, manager);
   const horizontalPan = panHandler.horizontal(0);
 
   manager.on('pan', function(e) {
@@ -108,22 +108,18 @@ export class GridSliderSwitch {
 
   _arrowManager() {
     if (this.currentItemsList === this.listWrapper.firstElementChild && this.switchActive) {
-      console.log('1');
       this.leftArrow.classList.add('Arrow_active');
       this.rightArrow.classList.remove('Arrow_active');
     } else if (
       this.currentItemsList === this.listWrapper.lastElementChild &&
       this.itemLists.length !== 1
     ) {
-      console.log('2');
       this.leftArrow.classList.remove('Arrow_active');
       this.rightArrow.classList.add('Arrow_active');
     } else if (this.switchActive) {
-      console.log('3');
       this.leftArrow.classList.add('Arrow_active');
       this.rightArrow.classList.add('Arrow_active');
     } else {
-      console.log('4');
       this.leftArrow.classList.remove('Arrow_active');
       this.rightArrow.classList.remove('Arrow_active');
     }

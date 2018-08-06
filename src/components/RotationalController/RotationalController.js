@@ -14,7 +14,8 @@ export function rotation(rotationController) {
   const indicator = rotationController.querySelector('.RotationalController-Indicator');
   const valueContainer = rotationController.querySelector('.RotationalController-Value b');
   const initialRotateOffset = -151;
-  const pieDiagram = rotationController.querySelector('.RotationalController-Pie');
+  const pieDiagram = rotationController.querySelector('.RotationalController-PieCircle');
+  const pieDash = parseInt(pieDiagram.getAttribute('stroke-dasharray').split(' ')[1], 10);
   const maxValue = 35;
   const minValue = 5;
   const manager = new Hammer.Manager(manipulator);
@@ -22,14 +23,13 @@ export function rotation(rotationController) {
   const RAD_TO_DEG = 180 / Math.PI;
   const MIN_ANGLE = 27;
   const MAX_ANGLE = 330;
-  const DEG_DIFF_FIX = 28;
+  const DEG_DIFF_FIX = 26;
+  const DEG_TO_STROKE_DASHARRAY = pieDash / 360;
 
-  function setAngle(pie, indicator) {
-    var p = pie.textContent;
-    pie.style.animationDelay = '-' + parseFloat(p) + 's';
-    pie.style['WebkitAnimationDelay'] = '-' + parseFloat(p) + 's';
-    let rotationAngle = parseFloat(p) - initialRotateOffset + DEG_DIFF_FIX * 2;
-    indicator.style.transform = `rotate(${rotationAngle}deg)`;
+  function setAngle(pie, indicator, angle) {
+    pie.setAttribute('stroke-dasharray', `${angle * DEG_TO_STROKE_DASHARRAY} ${pieDash}`);
+    // let rotationAngle = parseFloat(p) - initialRotateOffset + DEG_DIFF_FIX * 2;
+    indicator.style.transform = `rotate(${angle - initialRotateOffset + DEG_DIFF_FIX}deg)`;
   }
 
   manager.add(Pan);
@@ -50,8 +50,7 @@ export function rotation(rotationController) {
     if (angle < 0) angle = 360 + angle;
 
     if (angle > MIN_ANGLE && angle < MAX_ANGLE) {
-      pieDiagram.textContent = `${angle - DEG_DIFF_FIX}deg`;
-      setAngle(pieDiagram, indicator);
+      setAngle(pieDiagram, indicator, angle);
 
       const value = Math.floor(
         ((maxValue - minValue + 1) * (angle - MIN_ANGLE)) / (MAX_ANGLE - MIN_ANGLE) + minValue

@@ -7,7 +7,7 @@ export function swipe(slider) {
   let Pan = new Hammer.Pan();
 
   manager.add(Pan);
-  const panHandler = new PanHandler(slider, itemList);
+  const panHandler = new PanHandler(slider, itemList, manager);
   const horizontalPanMobile = panHandler.horizontal(40);
   const horizontalPanDesktop = panHandler.horizontal(80);
 

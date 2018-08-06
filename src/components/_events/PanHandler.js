@@ -1,24 +1,35 @@
 import Hammer from 'hammerjs';
 
 export class PanHandler {
-  constructor(parent, list) {
+  constructor(parent, list, manager) {
     this.parent = parent;
     this.list = list;
+    this.manager = manager;
   }
 
   vertical(margin) {
     let sumOffset = 0;
     let parent = this.parent;
     let list = this.list;
+    let lastDelta = 0;
+
+    this.manager.on('panend', () => {
+      lastDelta = 0;
+    });
+    this.manager.on('pancancel', () => {
+      lastDelta = 0;
+    });
 
     return event => {
       const listHeight = list.clientHeight;
       const parentHeight = parent.clientHeight;
       const maxOffset = parentHeight - listHeight - margin;
       let { deltaY } = event;
+      const offset = deltaY - lastDelta;
+      lastDelta = deltaY;
 
       if (parentHeight < listHeight) {
-        sumOffset += deltaY / 2;
+        sumOffset += offset;
         if (sumOffset > 0) {
           sumOffset = 0;
         } else if (sumOffset < maxOffset) {
@@ -39,6 +50,14 @@ export class PanHandler {
     let sumOffset = 0;
     let parent = this.parent;
     let list = this.list;
+    let lastDelta = 0;
+
+    this.manager.on('panend', () => {
+      lastDelta = 0;
+    });
+    this.manager.on('pancancel', () => {
+      lastDelta = 0;
+    });
 
     return event => {
       const listWidth = list.clientWidth;
@@ -46,8 +65,11 @@ export class PanHandler {
       const maxOffset = parentWidth - listWidth - margin;
       let { deltaX } = event;
 
+      const offset = deltaX - lastDelta;
+      lastDelta = deltaX;
+
       if (parentWidth < listWidth) {
-        sumOffset += deltaX / 2;
+        sumOffset += offset;
         if (sumOffset > 0) {
           sumOffset = 0;
         } else if (sumOffset < maxOffset) {
