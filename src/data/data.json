@@ -184,8 +184,8 @@
           {
             "isActive": true,
             "type": "sun",
-            "controller": "switch",
-            "currentValue": true,
+            "controller": "range",
+            "currentValue": 25,
             "tags": ["kitchen"],
             "title": "Xiaomi Mi Air Purifier 2S",
             "description": "Включено"

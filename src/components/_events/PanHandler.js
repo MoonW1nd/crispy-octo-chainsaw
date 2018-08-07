@@ -64,7 +64,6 @@ export class PanHandler {
       const listWidth = list.clientWidth;
       const parentWidth = parent.clientWidth;
       const maxOffset = parentWidth - listWidth - margin;
-      console.log(maxOffset);
       let { deltaX, velocity } = event;
 
       const offset = deltaX - lastDelta;

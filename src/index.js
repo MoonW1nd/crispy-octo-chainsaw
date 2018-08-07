@@ -26,6 +26,8 @@ const lightRangeController = document.querySelector('.RangeController.Modal-Ligh
 
 RangeController.presetsSwipe(temperatureRangeController, 'temperature');
 RangeController.presetsSwipe(lightRangeController, 'light');
+RangeController.setPreset(lightRangeController);
+RangeController.setPreset(temperatureRangeController);
 
 buttonClose.addEventListener('click', Modal.animationClose(elementModal, pageWrapper));
 $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper));

@@ -49,7 +49,7 @@ export function rotation(rotationController) {
     angle *= RAD_TO_DEG;
     if (angle < 0) angle = 360 + angle;
 
-    if (angle > MIN_ANGLE && angle < MAX_ANGLE) {
+    if (angle >= MIN_ANGLE && angle <= MAX_ANGLE) {
       setAngle(pieDiagram, indicator, angle);
 
       const value = Math.floor(

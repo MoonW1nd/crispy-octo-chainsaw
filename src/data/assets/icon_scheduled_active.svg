@@ -13,7 +13,7 @@
                         <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
                         <g id="clock" transform="translate(2.000000, 2.000000)" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                             <circle id="Oval" cx="10" cy="10" r="10"></circle>
-                            <polyline id="Shape" opacity="0.3" points="10 4 10 10 13 13"></polyline>
+                            <polyline id="Shape" stroke='#F5A623' opacity="0.3" points="10 4 10 10 13 13"></polyline>
                         </g>
                     </g>
                 </g>

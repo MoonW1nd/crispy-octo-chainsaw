@@ -15,7 +15,7 @@ export function swipe(slider) {
     let sliderHeight = slider.clientHeight;
     let windowWidth = document.documentElement.clientWidth;
 
-    if (windowWidth < 850) {
+    if (windowWidth <= 850) {
       horizontalPan(e);
     }
   });

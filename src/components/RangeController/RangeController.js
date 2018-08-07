@@ -23,12 +23,52 @@ export function presetsSwipe(preset, type) {
     let sliderHeight = preset.clientHeight;
     let windowWidth = document.documentElement.clientWidth;
 
-    if (windowWidth < 850) {
+    if (windowWidth <= 850) {
       horizontalPan(e);
     }
   });
 }
 
+export function setPreset(controller) {
+  const presetButtons = controller.querySelectorAll('.Filter-Button');
+  const input = controller.querySelector('.RangeController-Scale');
+  const maxValue = input.getAttribute('max');
+
+  Array.prototype.forEach.call(presetButtons, button => {
+    button.addEventListener('click', event => {
+      const button = event.currentTarget;
+      button
+        .closest('.Filter-TypesList')
+        .querySelector('.Filter-Button_state_active')
+        .classList.remove('Filter-Button_state_active');
+
+      button.classList.add('Filter-Button_state_active');
+
+      switch (button.dataset.tag) {
+        case 'low':
+          input.value = maxValue * 0.1;
+          break;
+
+        case 'medium':
+          input.value = maxValue * 0.5;
+          break;
+
+        case 'large':
+          input.value = maxValue * 0.9;
+          break;
+
+        case 'hand':
+          break;
+
+        default:
+          console.warn('Not correct tag in preset handler');
+          break;
+      }
+    });
+  });
+}
+
 export default {
   presetsSwipe,
+  setPreset,
 };
