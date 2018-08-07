@@ -86,8 +86,13 @@
     white-space: nowrap;
   }
 
+  &_animated {
+    transition: 0.15s linear filter;
+    filter: blur(0);
+  }
+
   &_blure {
-    filter: blur(10px);
+    filter: blur(5px);
   }
 
   &_body {

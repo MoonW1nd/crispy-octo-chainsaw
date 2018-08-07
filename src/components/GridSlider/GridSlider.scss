@@ -11,7 +11,7 @@
     align-content: flex-start;
     margin: 0 -15px 0 0;
     padding: 0;
-    transition: 0.5s linear transform;
+    transition: $pan-transition;
 
     &.ItemList_clone {
       position: absolute;

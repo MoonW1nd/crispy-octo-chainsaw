@@ -24,12 +24,13 @@ export class PanHandler {
       const listHeight = list.clientHeight;
       const parentHeight = parent.clientHeight;
       const maxOffset = parentHeight - listHeight - margin;
-      let { deltaY } = event;
+      let { deltaY, velocity } = event;
       const offset = deltaY - lastDelta;
       lastDelta = deltaY;
 
       if (parentHeight < listHeight) {
-        sumOffset += offset;
+        sumOffset += offset + velocity * 13;
+
         if (sumOffset > 0) {
           sumOffset = 0;
         } else if (sumOffset < maxOffset) {
@@ -63,13 +64,15 @@ export class PanHandler {
       const listWidth = list.clientWidth;
       const parentWidth = parent.clientWidth;
       const maxOffset = parentWidth - listWidth - margin;
-      let { deltaX } = event;
+      console.log(maxOffset);
+      let { deltaX, velocity } = event;
 
       const offset = deltaX - lastDelta;
       lastDelta = deltaX;
 
       if (parentWidth < listWidth) {
-        sumOffset += offset;
+        sumOffset += offset + velocity * 13;
+
         if (sumOffset > 0) {
           sumOffset = 0;
         } else if (sumOffset < maxOffset) {

@@ -7,6 +7,7 @@ import RotationalController from './components/RotationalController/RotationalCo
 import GridSlider from './components/GridSlider/GridSlider.js';
 import RowSlider from './components/RowSlider/RowSlider';
 import { GridSliderSwitch } from './components/GridSlider/GridSlider.js';
+import RangeController from './components/RangeController/RangeController.js';
 
 // Panels click heandler;
 $('.GridSlider .Panel').on('click', Panel.toggleStateActive);
@@ -18,6 +19,14 @@ $('.RowSlider-Filter .Filter-Button').on('click', Filter.toggleFilter(filteredPa
 const elementModal = document.querySelector('.Modal');
 const buttonClose = elementModal.querySelector('.Button:not(.Button_type_confirm)');
 const pageWrapper = document.querySelector('.Page-summary');
+const temperatureRangeController = document.querySelector(
+  '.RangeController.Modal-TemperatureController'
+);
+const lightRangeController = document.querySelector('.RangeController.Modal-LightController');
+
+RangeController.presetsSwipe(temperatureRangeController, 'temperature');
+RangeController.presetsSwipe(lightRangeController, 'light');
+
 buttonClose.addEventListener('click', Modal.animationClose(elementModal, pageWrapper));
 $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper));
 

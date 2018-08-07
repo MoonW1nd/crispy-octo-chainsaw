@@ -10,7 +10,7 @@
 
   &-ItemList {
     margin: 0;
-    transition: 0.5s linear transform;
+    transition: $pan-transition;
   }
 
   &-Button {

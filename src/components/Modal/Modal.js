@@ -16,15 +16,15 @@ export function animationOpen(modal, pageWrapper) {
 
     const title = target.querySelector('.Panel-Title').textContent;
     const description = target.querySelector('.Panel-Description').textContent;
-    modal.querySelector('.Modal-Title').innerHTML = `<b>${title}</b>`;
-    modal.querySelector('.Modal-Description').innerHTML = description;
-
     const modalIcon = modal.querySelector('.Modal-Icon');
+    let valueElement = modal.querySelector('.Modal-Value');
     const { iconType, controller, currentValue } = target.dataset;
+
+    modal.querySelector('.Modal-Description').innerHTML = description;
+    modal.querySelector('.Modal-Title').innerHTML = `<b>${title}</b>`;
     modalIcon.src = `../assets/icon_${iconType}_active.svg`;
     modalIcon.setAttribute('alt', `icon-${iconType}`);
 
-    let valueElement = modal.querySelector('.Modal-Value');
     if (iconType === 'temperature') {
       let setValue = currentValue;
       if (currentValue > 0) setValue = `+${currentValue}`;
@@ -52,8 +52,10 @@ export function animationOpen(modal, pageWrapper) {
     const targetClone = target.cloneNode();
     targetClone.classList.add('Panel-Clone');
     const targetCoords = getCoords(target);
+
     modal.setAttribute('data-card-top', targetCoords.top);
     modal.setAttribute('data-card-left', targetCoords.left);
+
     const modalContent = modal.querySelector('.Modal-Content');
     const modalForm = modal.querySelector('.Modal-Form');
 
@@ -82,13 +84,15 @@ export function animationOpen(modal, pageWrapper) {
     setTimeout(() => {
       modalForm.style.transition = '0.2s linear opacity';
       modalForm.style.opacity = 1;
+
       Object.assign(targetClone.style, {
-        transition: '0.3s linear all',
+        transition: '0.2s linear all',
         opacity: 0,
         pointerEvents: 'none',
       });
     }, 210);
 
+    pageWrapper.classList.add('Modal_animated');
     pageWrapper.classList.add('Modal_blure');
     document.querySelector('body').classList.add('Modal_body');
     modal.style.top = `${pageYOffset}px`;
@@ -102,6 +106,7 @@ export function animationClose(modal, pageWrapper) {
       top: modal.dataset.cardTop,
       left: modal.dataset.cardLeft,
     };
+
     const targetClone = document.documentElement.querySelector('.Modal_body .Panel-Clone');
     const modalContent = modal.querySelector('.Modal-Content');
     const modalForm = modal.querySelector('.Modal-Form');
@@ -118,20 +123,25 @@ export function animationClose(modal, pageWrapper) {
           width: '200px',
           height: '120px',
         });
+
+        pageWrapper.classList.remove('Modal_blure');
+
         resolve();
       }, 200);
     });
 
     promise.then(() => {
       setTimeout(() => {
-        targetClone.remove();
-        modal.classList.add('Modal_hidden');
         let controllers = modal.querySelector('.Modal-Controller').children;
         controllers = Array.prototype.slice.call(controllers);
+
+        pageWrapper.classList.remove('Modal_animated');
+        modal.classList.add('Modal_hidden');
         controllers.forEach(element => element.classList.add('Modal_hidden'));
-        pageWrapper.classList.remove('Modal_blure');
         document.querySelector('body').classList.remove('Modal_body');
+
         modal.style.top = '';
+        targetClone.remove();
       }, 200);
     });
   };
