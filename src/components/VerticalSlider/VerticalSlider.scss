@@ -19,6 +19,7 @@
     right: 90px;
     border-width: 0;
     background: transparent;
+    transition: 200ms linear opacity;
 
     &:hover {
       cursor: pointer;
