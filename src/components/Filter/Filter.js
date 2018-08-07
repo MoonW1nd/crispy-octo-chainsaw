@@ -17,8 +17,15 @@ export function toggleFilter(panelsList) {
       }
     });
 
-    $filtersList.find('.Filter-Button_state_active').removeClass('Filter-Button_state_active');
-    $filterButton.addClass('Filter-Button_state_active');
+    $filtersList
+      .find('.Filter-Button_state_active')
+      .removeClass('Filter-Button_state_active')
+      .parent()
+      .removeClass('Filter-Type_state_active');
+    $filterButton
+      .addClass('Filter-Button_state_active')
+      .parent()
+      .addClass('Filter-Type_state_active');
   };
 }
 

@@ -10,8 +10,10 @@
       <input
         type="range"
         class="RangeController-Scale"
-        min="{{ data.boundaryCondition.low }}"
-        max="{{ data.boundaryCondition.high }}"
+        min="0"
+        max="100"
+        data-min="{{ data.boundaryCondition.low }}"
+        data-max="{{ data.boundaryCondition.high }}"
       />
 
       {% if data.type == "sun" %}

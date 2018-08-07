@@ -45,8 +45,10 @@ export function animationOpen(modal, pageWrapper) {
     }
 
     controllerElement.classList.remove('Modal_hidden');
-    if (controller === 'range')
-      controllerElement.querySelector('input[type="range"]').setAttribute('value', currentValue);
+    if (controller === 'range') {
+      const rangeController = controllerElement.querySelector('input[type="range"]');
+      rangeController.value = currentValue;
+    }
 
     // ANIMATION
     const targetClone = target.cloneNode();
@@ -137,7 +139,19 @@ export function animationClose(modal, pageWrapper) {
 
         pageWrapper.classList.remove('Modal_animated');
         modal.classList.add('Modal_hidden');
-        controllers.forEach(element => element.classList.add('Modal_hidden'));
+        controllers.forEach(element => {
+          element.classList.add('Modal_hidden');
+
+          if (element.classList.contains('RangeController')) {
+            element
+              .querySelector('.Filter-Button_state_active')
+              .classList.remove('Filter-Button_state_active');
+
+            element
+              .querySelector('.Filter-Type:first-child .Filter-Button')
+              .classList.add('Filter-Button_state_active');
+          }
+        });
         document.querySelector('body').classList.remove('Modal_body');
 
         modal.style.top = '';
