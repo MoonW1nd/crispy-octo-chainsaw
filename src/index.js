@@ -8,6 +8,7 @@ import GridSlider from './components/GridSlider/GridSlider.js';
 import RowSlider from './components/RowSlider/RowSlider';
 import { GridSliderSwitch } from './components/GridSlider/GridSlider.js';
 import RangeController from './components/RangeController/RangeController.js';
+import { Switch } from './components/Switch/Switch.js';
 
 // Panels click heandler;
 $('.GridSlider .Panel').on('click', Panel.toggleStateActive);
@@ -33,12 +34,25 @@ RangeController.presetsSwipe(lightRangeController, 'light');
 RangeController.setPreset(lightRangeController);
 RangeController.setPreset(temperatureRangeController);
 
+// RowSlider Handlers
+const rowSliderItemLIst = document.querySelector('.RowSlider .RowSlider-ItemsList');
+const rowSliderSwitch = document.querySelector('.RowSlider .Switch');
+const rowSwitch = new Switch(rowSliderItemLIst, rowSliderSwitch, 430, 80);
+
+document
+  .querySelector('.RowSlider-Switch .Arrow_direction_left')
+  .addEventListener('click', rowSwitch.moveLeft);
+document
+  .querySelector('.RowSlider-Switch .Arrow_direction_right')
+  .addEventListener('click', rowSwitch.moveRight);
+
+RowSlider.swipe(document.querySelector('.RowSlider .RowSlider-Row'), rowSwitch._arrowManager());
+
 buttonClose.addEventListener('click', Modal.animationClose(elementModal, pageWrapper));
 $('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper));
 
 VerticalSlider.swipe(document.querySelector('.StateWidget .VerticalSlider'));
 GridSlider.swipe(document.querySelector('.PageContent-MainRow .GridSlider'));
-RowSlider.swipe(document.querySelector('.RowSlider .RowSlider-Row'));
 
 const gridSliderSwitch = new GridSliderSwitch(
   document.querySelector('.GridSlider'),
@@ -72,5 +86,6 @@ RotationalController.rotation(document.querySelector('.RotationalController'));
 
   function actualResizeHandler() {
     gridSliderSwitch.resize();
+    rowSwitch.resize();
   }
 })();

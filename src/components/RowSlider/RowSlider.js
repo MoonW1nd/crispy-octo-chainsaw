@@ -8,18 +8,15 @@ export function swipe(slider) {
 
   manager.add(Pan);
   const panHandler = new PanHandler(slider, itemList, manager);
-  const horizontalPanMobile = panHandler.horizontal(40);
-  const horizontalPanDesktop = panHandler.horizontal(80);
+  const horizontalPan = panHandler.horizontal(40);
 
   manager.on('pan', function(e) {
     let sliderWidth = slider.clientWidth;
     let sliderHeight = slider.clientHeight;
     let windowWidth = document.documentElement.clientWidth;
 
-    if (windowWidth >= 850) {
-      horizontalPanDesktop(e);
-    } else {
-      horizontalPanMobile(e);
+    if (windowWidth <= 850) {
+      horizontalPan(e);
     }
   });
 }
