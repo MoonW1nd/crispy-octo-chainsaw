@@ -13,8 +13,6 @@ import { Switch } from './components/Switch/Switch.js';
 // Panels click heandler;
 $('.GridSlider .Panel').on('click', Panel.toggleStateActive);
 $('.Header-Menu .Menu-Item').on('click', Menu.toggleStateActive);
-const filteredPanels = $('.RowSlider-ItemsList .Panel');
-$('.RowSlider-Filter .Filter-Button').on('click', Filter.toggleFilter(filteredPanels));
 
 // RowSlider
 const rowSliderFilter = document.querySelector('.RowSlider-Filter');
@@ -38,6 +36,11 @@ RangeController.setPreset(temperatureRangeController);
 const rowSliderItemLIst = document.querySelector('.RowSlider .RowSlider-ItemsList');
 const rowSliderSwitch = document.querySelector('.RowSlider .Switch');
 const rowSwitch = new Switch(rowSliderItemLIst, rowSliderSwitch, 430, 80);
+const filteredPanels = $('.RowSlider-ItemsList .Panel');
+$('.RowSlider-Filter .Filter-Button').on(
+  'click',
+  Filter.toggleFilter(filteredPanels, rowSwitch.resize)
+);
 
 document
   .querySelector('.RowSlider-Switch .Arrow_direction_left')

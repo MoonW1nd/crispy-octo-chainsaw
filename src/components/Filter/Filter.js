@@ -1,6 +1,4 @@
-import { types } from 'util';
-
-export function toggleFilter(panelsList) {
+export function toggleFilter(panelsList, cb) {
   return event => {
     const target = event.target;
     const $filterButton = $(target).hasClass('Filter-Button')
@@ -12,11 +10,16 @@ export function toggleFilter(panelsList) {
     panelsList.each((i, panel) => {
       const $panel = $(panel);
       const tags = $panel.attr('data-tags').split(',');
+
       if (tagFilter === 'all' || tags.includes(tagFilter)) {
         $panel.closest('li').removeClass('Filter_hidden');
       } else {
         $panel.closest('li').addClass('Filter_hidden');
       }
+    });
+
+    $(panelsList[0].parentNode.parentNode).css({
+      transform: 'translate3d(0,0,0)',
     });
 
     $filtersList
@@ -29,6 +32,8 @@ export function toggleFilter(panelsList) {
       .addClass('Filter-Button_state_active')
       .parent()
       .addClass('Filter-Type_state_active');
+
+    if (cb != null) cb();
   };
 }
 
@@ -36,6 +41,7 @@ export function toggleOpenCollapseFilter(event) {
   let windowWidth = document.documentElement.clientWidth;
   const filter = event.currentTarget;
   const typesList = filter.querySelector('.Filter-TypesList');
+
   if (windowWidth <= 650) {
     if (!typesList.classList.contains('Filter-TypesList_open')) {
       typesList.classList.add('Filter-TypesList_open');

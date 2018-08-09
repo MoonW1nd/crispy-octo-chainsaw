@@ -33,6 +33,10 @@
       cursor: pointer;
     }
 
+    &:active {
+      color: $text-color_primary;
+    }
+
     &_state_active {
       background-color: $accent-color;
 

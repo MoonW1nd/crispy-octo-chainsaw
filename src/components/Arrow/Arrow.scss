@@ -12,6 +12,10 @@
     .Arrow-Icon {
       opacity: 1;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &_direction_right {

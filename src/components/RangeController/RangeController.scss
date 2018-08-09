@@ -27,10 +27,20 @@
 
 .RangeController {
   &-Scale {
-    @include rangeTrack(linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%));
-
-    &::-moz-range-track {
+    &_type_temperature {
       @include rangeTrack(linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%));
+
+      &::-moz-range-track {
+        @include rangeTrack(linear-gradient(90deg, #068fff 0%, #ffd800 50%, #f76b1c 100%));
+      }
+    }
+
+    &_type_sun {
+      @include rangeTrack(linear-gradient(90deg, #ffe88c 0%, #ffb100 100%));
+
+      &::-moz-range-track {
+        @include rangeTrack(linear-gradient(90deg, #ffe88c 0%, #ffb100 100%));
+      }
     }
 
     &::-webkit-slider-thumb {
@@ -106,6 +116,16 @@
       bottom: 26px;
       left: initial;
       top: initial;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      &_type_sun {
+        right: 5px;
+        bottom: 13px;
+      }
     }
 
     &-HightBoundaryCondition {
@@ -114,6 +134,16 @@
       bottom: initial;
       left: 20px;
       top: 21px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      &_type_sun {
+        left: 14px;
+        top: 9px;
+      }
     }
   }
 }

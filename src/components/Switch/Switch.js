@@ -65,7 +65,6 @@ export class Switch {
     this.currentTransform += this.shift;
 
     if (this.currentTransform >= 0) this.currentTransform = 0;
-    console.log(this.currentTransform);
     this.elementsList.style.transform = `translateX(${this.currentTransform}px)`;
     this._arrowManager();
   }
@@ -73,7 +72,6 @@ export class Switch {
   moveRight(event) {
     if (!this.rightArrow.classList.contains('Arrow_active')) return;
     this.currentTransform -= this.shift;
-    console.log(this.currentTransform, this.maxShift);
     if (this.currentTransform <= this.maxShift) this.currentTransform = this.maxShift;
     this.elementsList.style.transform = `translateX(${this.currentTransform}px)`;
     this._arrowManager();

@@ -9,7 +9,7 @@
     <div class="RangeController-ControllerBlock">
       <input
         type="range"
-        class="RangeController-Scale"
+        class="RangeController-Scale RangeController-Scale_type_{{data.type}}"
         min="0"
         max="100"
         data-min="{{ data.boundaryCondition.low }}"
@@ -17,11 +17,11 @@
       />
 
       {% if data.type == "sun" %}
-          <div class="RangeController-LowBoundaryCondition">
-            <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="low-sun-icon">
+          <div class="RangeController-LowBoundaryCondition RangeController-LowBoundaryCondition_type_sun">
+            <img class="Modal-Icon" src="../assets/icon_sun_min.svg" alt="low-sun-icon">
           </div>
-          <div class="RangeController-HightBoundaryCondition">
-            <img class="Modal-Icon" src="../assets/icon_sun_active.svg" alt="hight-sun-icon">
+          <div class="RangeController-HightBoundaryCondition RangeController-HightBoundaryCondition_type_sun">
+            <img class="Modal-Icon" src="../assets/icon_sun_max.svg" alt="hight-sun-icon">
           </div>
         {% else %}
           <div class="RangeController-LowBoundaryCondition">{{ data.boundaryCondition.low }}</div>
