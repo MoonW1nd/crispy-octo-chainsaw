@@ -70,43 +70,10 @@
       position: relative;
       top: -2px;
       left: 5px;
-
-      .Filter-Button_state_active {
-        .Filter-Arrow {
-          display: inline-block;
-        }
-      }
-
-      .Filter-Button:not(.Filter-Button_state_active) {
-        display: none;
-      }
     }
 
-    .Filter-TypesList {
-      flex-direction: column;
-      position: absolute;
-      top: -16px;
-      right: 0;
-      z-index: 2;
-      overflow: hidden;
-    }
-
-    .Filter-TypesList_open {
-      .Filter-Button {
-        display: block;
-        box-shadow: 0 2px 6px 0 #{rgba(#c5baba, 0.5)};
-      }
-    }
-
-    .Filter-Type {
-      display: inherit;
-      justify-content: flex-end;
-      margin-bottom: 15px;
-      order: 2;
-    }
-
-    .Filter-Type_state_active {
-      order: 1;
+    &-Row {
+      padding: 18px 0 25px 20px;
     }
   }
 }

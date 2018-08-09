@@ -49,6 +49,7 @@
 
     &-ItemsList {
       flex-wrap: nowrap;
+      flex-shrink: 0;
     }
 
     &-Item:last-child {

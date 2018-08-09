@@ -46,6 +46,7 @@
 @media (max-width: 850px) {
   .PageContent {
     padding: 3px 20px 0 20px;
+    margin-top: 65px;
     flex-grow: 1;
     flex-shrink: 0;
 
@@ -80,6 +81,14 @@
 
     &-RowSlider {
       margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .PageContent {
+    &-RowSlider {
+      margin-top: 15px;
     }
   }
 }

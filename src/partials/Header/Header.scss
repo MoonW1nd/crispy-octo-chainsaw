@@ -23,6 +23,9 @@
     padding: 0 20px;
     border: 0;
     height: 65px;
+    position: fixed;
+    background-color: $background-color_primary;
+    z-index: 100;
 
     .Menu-Icon {
       display: inline-block;

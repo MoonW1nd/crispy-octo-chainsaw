@@ -15,6 +15,10 @@ $('.Header-Menu .Menu-Item').on('click', Menu.toggleStateActive);
 const filteredPanels = $('.RowSlider-ItemsList .Panel');
 $('.RowSlider-Filter .Filter-Button').on('click', Filter.toggleFilter(filteredPanels));
 
+// RowSlider
+const rowSliderFilter = document.querySelector('.RowSlider-Filter');
+rowSliderFilter.addEventListener('click', Filter.toggleOpenCollapseFilter);
+
 // Modal
 const elementModal = document.querySelector('.Modal');
 const buttonClose = elementModal.querySelector('.Button:not(.Button_type_confirm)');
