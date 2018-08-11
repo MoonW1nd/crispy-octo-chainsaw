@@ -10,67 +10,89 @@ import { GridSliderSwitch } from './components/GridSlider/GridSlider.js';
 import RangeController from './components/RangeController/RangeController.js';
 import { Switch } from './components/Switch/Switch.js';
 
-// Panels click heandler;
-$('.GridSlider .Panel').on('click', Panel.toggleStateActive);
-$('.Header-Menu .Menu-Item').on('click', Menu.toggleStateActive);
+function _toArray(nodeList) {
+  return Array.prototype.slice.call(nodeList);
+}
 
-// RowSlider
-const rowSliderFilter = document.querySelector('.RowSlider-Filter');
-rowSliderFilter.addEventListener('click', Filter.toggleOpenCollapseFilter);
+// Header;
+_toArray(document.querySelectorAll('.Header-Menu .Menu-Item')).forEach(item => {
+  item.addEventListener('click', Menu.toggleStateActive);
+});
+
+// Объект для дом элементов
+const DOM = {
+  modal: {},
+  rowSlider: {},
+  gridSlider: {},
+};
 
 // Modal
-const elementModal = document.querySelector('.Modal');
-const buttonClose = elementModal.querySelector('.Button:not(.Button_type_confirm)');
-const pageWrapper = document.querySelector('.Page-summary');
-const temperatureRangeController = document.querySelector(
+DOM.modal.main = document.querySelector('.Modal');
+DOM.modal.buttonClose = DOM.modal.main.querySelector('.Button:not(.Button_type_confirm)');
+DOM.modal.buttonConfirm = DOM.modal.main.querySelector('.Button.Button_type_confirm');
+DOM.modal.pageWrapper = document.querySelector('.Page-summary');
+DOM.modal.temperatureController = document.querySelector(
   '.RangeController.Modal-TemperatureController'
 );
-const lightRangeController = document.querySelector('.RangeController.Modal-LightController');
+DOM.modal.lightController = document.querySelector('.RangeController.Modal-LightController');
 
-RangeController.presetsSwipe(temperatureRangeController, 'temperature');
-RangeController.presetsSwipe(lightRangeController, 'light');
-RangeController.setPreset(lightRangeController);
-RangeController.setPreset(temperatureRangeController);
+RangeController.presetsSwipe(DOM.modal.temperatureController, 'temperature');
+RangeController.setPreset(DOM.modal.temperatureController);
+RangeController.presetsSwipe(DOM.modal.lightController, 'light');
+RangeController.setPreset(DOM.modal.lightController);
+
+DOM.modal.buttonClose.addEventListener(
+  'click',
+  Modal.animationClose(DOM.modal.main, DOM.modal.pageWrapper)
+);
+DOM.modal.buttonConfirm.addEventListener(
+  'click',
+  Modal.animationClose(DOM.modal.main, DOM.modal.pageWrapper)
+);
+RotationalController.rotation(document.querySelector('.RotationalController'));
 
 // RowSlider Handlers
-const rowSliderItemLIst = document.querySelector('.RowSlider .RowSlider-ItemsList');
-const rowSliderSwitch = document.querySelector('.RowSlider .Switch');
-const rowSwitch = new Switch(rowSliderItemLIst, rowSliderSwitch, 430, 80);
-const filteredPanels = $('.RowSlider-ItemsList .Panel');
-$('.RowSlider-Filter .Filter-Button').on(
-  'click',
-  Filter.toggleFilter(filteredPanels, rowSwitch.resize)
-);
+DOM.rowSlider.main = document.querySelector('.RowSlider');
+DOM.rowSlider.row = DOM.rowSlider.main.querySelector('.RowSlider-Row');
+DOM.rowSlider.itemList = DOM.rowSlider.main.querySelector('.RowSlider-ItemsList');
+DOM.rowSlider.switch = DOM.rowSlider.main.querySelector('.Switch');
+DOM.rowSlider.arrowLeft = DOM.rowSlider.switch.querySelector('.Arrow_direction_left');
+DOM.rowSlider.arrowRight = DOM.rowSlider.switch.querySelector('.Arrow_direction_right');
+DOM.rowSlider.filter = document.querySelector('.RowSlider-Filter');
+DOM.rowSlider.filterButtons = DOM.rowSlider.filter.querySelectorAll('.Filter-Button');
+DOM.rowSlider.panels = DOM.rowSlider.itemList.querySelectorAll('.Panel');
+const RowSwitch = new Switch(DOM.rowSlider.itemList, DOM.rowSlider.switch, 430, 80);
 
-document
-  .querySelector('.RowSlider-Switch .Arrow_direction_left')
-  .addEventListener('click', rowSwitch.moveLeft);
-document
-  .querySelector('.RowSlider-Switch .Arrow_direction_right')
-  .addEventListener('click', rowSwitch.moveRight);
+DOM.rowSlider.filter.addEventListener('click', Filter.toggleOpenCollapseFilter);
+DOM.rowSlider.arrowLeft.addEventListener('click', RowSwitch.moveLeft);
+DOM.rowSlider.arrowRight.addEventListener('click', RowSwitch.moveRight);
+RowSlider.swipe(DOM.rowSlider.row, RowSwitch._arrowManager());
+_toArray(DOM.rowSlider.filterButtons).forEach(button => {
+  button.addEventListener('click', Filter.toggleFilter(DOM.rowSlider.panels, RowSwitch.resize));
+});
+_toArray(DOM.rowSlider.panels).forEach(panel => {
+  panel.addEventListener('click', Modal.animationOpen(DOM.modal.main, DOM.modal.pageWrapper));
+});
 
-RowSlider.swipe(document.querySelector('.RowSlider .RowSlider-Row'), rowSwitch._arrowManager());
-
-buttonClose.addEventListener('click', Modal.animationClose(elementModal, pageWrapper));
-$('.RowSlider .Panel').on('click', Modal.animationOpen(elementModal, pageWrapper));
-
+// VerticalSlider
 VerticalSlider.swipe(document.querySelector('.StateWidget .VerticalSlider'));
-GridSlider.swipe(document.querySelector('.PageContent-MainRow .GridSlider'));
 
-const gridSliderSwitch = new GridSliderSwitch(
-  document.querySelector('.GridSlider'),
-  document.querySelector('.GridSlider-Switch')
-);
-gridSliderSwitch.gridManager();
+// GridSlider
+DOM.gridSlider.main = document.querySelector('.GridSlider');
+DOM.gridSlider.panels = DOM.gridSlider.main.querySelectorAll('.Panel');
+DOM.gridSlider.switch = DOM.gridSlider.main.querySelector('.GridSlider-Switch');
+DOM.gridSlider.arrowLeft = DOM.gridSlider.switch.querySelector('.Arrow_direction_left');
+DOM.gridSlider.arrowRight = DOM.gridSlider.switch.querySelector('.Arrow_direction_right');
+const GridSwitch = new GridSliderSwitch(DOM.gridSlider.main, DOM.gridSlider.switch);
 
-document
-  .querySelector('.GridSlider-Switch .Arrow_direction_left')
-  .addEventListener('click', gridSliderSwitch.moveLeft);
-document
-  .querySelector('.GridSlider-Switch .Arrow_direction_right')
-  .addEventListener('click', gridSliderSwitch.moveRight);
+GridSlider.swipe(DOM.gridSlider.main);
+GridSwitch.gridManager();
 
-RotationalController.rotation(document.querySelector('.RotationalController'));
+DOM.gridSlider.arrowLeft.addEventListener('click', GridSwitch.moveLeft);
+DOM.gridSlider.arrowRight.addEventListener('click', GridSwitch.moveRight);
+_toArray(DOM.gridSlider.panels).forEach(panel => {
+  panel.addEventListener('click', Panel.toggleStateActive);
+});
 
 // оптимизация resize событий
 (function() {
@@ -88,7 +110,7 @@ RotationalController.rotation(document.querySelector('.RotationalController'));
   }
 
   function actualResizeHandler() {
-    gridSliderSwitch.resize();
-    rowSwitch.resize();
+    GridSwitch.resize();
+    RowSwitch.resize();
   }
 })();

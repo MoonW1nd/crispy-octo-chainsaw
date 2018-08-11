@@ -1,37 +1,34 @@
-export function toggleFilter(panelsList, cb) {
-  return event => {
-    const target = event.target;
-    const $filterButton = $(target).hasClass('Filter-Button')
-      ? $(target)
-      : $(target).closest('.Filter-Button');
-    const tagFilter = $filterButton.attr('data-tag');
-    const $filtersList = $filterButton.closest('.Filter-TypesList');
+function _toArray(nodeList) {
+  return Array.prototype.slice.call(nodeList);
+}
 
-    panelsList.each((i, panel) => {
-      const $panel = $(panel);
-      const tags = $panel.attr('data-tags').split(',');
+export function toggleFilter(panelsCollection, cb) {
+  return event => {
+    const target = event.currentTarget;
+
+    panelsCollection = _toArray(panelsCollection);
+
+    const tagFilter = target.dataset.tag;
+    const filtersList = target.closest('.Filter-TypesList');
+
+    panelsCollection.forEach((panel, i) => {
+      const tags = panel.dataset.tags.split(',');
 
       if (tagFilter === 'all' || tags.includes(tagFilter)) {
-        $panel.closest('li').removeClass('Filter_hidden');
+        panel.closest('li').classList.remove('Filter_hidden');
       } else {
-        $panel.closest('li').addClass('Filter_hidden');
+        panel.closest('li').classList.add('Filter_hidden');
       }
     });
 
-    $(panelsList[0].parentNode.parentNode).css({
-      transform: 'translate3d(0,0,0)',
-    });
+    panelsCollection[0].parentNode.parentNode.style.transform = 'translate3d(0,0,0)';
 
-    $filtersList
-      .find('.Filter-Button_state_active')
-      .removeClass('Filter-Button_state_active')
-      .parent()
-      .removeClass('Filter-Type_state_active');
+    const activeButton = filtersList.querySelector('.Filter-Button_state_active');
+    activeButton.classList.remove('Filter-Button_state_active');
+    activeButton.parentNode.classList.remove('Filter-Type_state_active');
 
-    $filterButton
-      .addClass('Filter-Button_state_active')
-      .parent()
-      .addClass('Filter-Type_state_active');
+    target.classList.add('Filter-Button_state_active');
+    target.parentNode.classList.add('Filter-Type_state_active');
 
     if (cb != null) cb();
   };
@@ -49,10 +46,6 @@ export function toggleOpenCollapseFilter(event) {
       typesList.classList.remove('Filter-TypesList_open');
     }
   }
-}
-
-function getPanelsTag($panel) {
-  return $panel.attr('data-tag').split(',');
 }
 
 export default {

@@ -9,10 +9,7 @@ function getCoords(elem) {
 
 export function animationOpen(modal, pageWrapper) {
   return event => {
-    let { target } = event;
-    if (!target.classList.contains('Panel')) {
-      target = target.closest('.Panel');
-    }
+    let target = event.currentTarget;
 
     const title = target.querySelector('.Panel-Title').textContent;
     const description = target.querySelector('.Panel-Description').textContent;
@@ -147,6 +144,11 @@ export function animationClose(modal, pageWrapper) {
         modal.classList.add('Modal_hidden');
         controllers.forEach(element => {
           element.classList.add('Modal_hidden');
+
+          // Убираем смещение фильтров
+          if (element.querySelector('.Filter-TypesList')) {
+            element.querySelector('.Filter-TypesList').style.transform = 'translate3d(0, 0, 0)';
+          }
 
           if (element.classList.contains('RangeController')) {
             element
