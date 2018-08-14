@@ -1,9 +1,11 @@
-function getCoords(elem) {
+function getBox(elem) {
   var box = elem.getBoundingClientRect();
 
   return {
     top: box.top + pageYOffset,
     left: box.left + pageXOffset,
+    width: box.width,
+    height: box.height,
   };
 }
 
@@ -56,10 +58,7 @@ export function animationOpen(modal, pageWrapper) {
     // ANIMATION
     const targetClone = target.cloneNode();
     targetClone.classList.add('Panel-Clone');
-    const targetCoords = getCoords(target);
-
-    modal.setAttribute('data-card-top', targetCoords.top);
-    modal.setAttribute('data-card-left', targetCoords.left);
+    const targetBox = getBox(target);
 
     const modalContent = modal.querySelector('.Modal-Content');
     const modalForm = modal.querySelector('.Modal-Form');
@@ -68,34 +67,38 @@ export function animationOpen(modal, pageWrapper) {
     Object.assign(targetClone.style, {
       position: 'absolute',
       zIndex: '99',
-      transition: '0.2s linear all',
-      left: `${targetCoords.left}px`,
-      top: `${targetCoords.top}px`,
+      transition: '0.3s linear',
+      transitionProperty: 'transform, opacity',
+      left: `${targetBox.left}px`,
+      top: `${targetBox.top}px`,
     });
 
     document.querySelector('body').appendChild(targetClone);
     modal.classList.remove('Modal_hidden');
 
     const modalContentSize = modalContent.getBoundingClientRect();
-    const modalContentCoords = getCoords(modalContent);
+    const modalContentCoords = getBox(modalContent);
+    const modalBox = getBox(modal.querySelector('.Modal-Content'));
 
     Object.assign(targetClone.style, {
-      width: `${modalContentSize.width}px`,
-      height: `${modalContentSize.height}px`,
-      top: `${modalContentCoords.top}px`,
-      left: `${modalContentCoords.left}px`,
+      transform: `translate3d(${modalBox.left - targetBox.left}px, ${modalBox.top -
+        targetBox.top}px, 0) scale(${modalBox.width / targetBox.width}, ${modalBox.height /
+        targetBox.height})`,
+      'transform-origin': 'left top',
+      'border-radius': '8px',
     });
 
     setTimeout(() => {
       modalForm.style.transition = '0.2s linear opacity';
+      modalForm.style['will-change'] = 'transform, opacity';
       modalForm.style.opacity = 1;
 
       Object.assign(targetClone.style, {
-        transition: '0.2s linear all',
+        // transition: '0.3s linear all',
         opacity: 0,
         pointerEvents: 'none',
       });
-    }, 210);
+    }, 310);
 
     pageWrapper.classList.add('Modal_animated');
     pageWrapper.classList.add('Modal_blure');
@@ -107,10 +110,6 @@ export function animationOpen(modal, pageWrapper) {
 export function animationClose(modal, pageWrapper) {
   return event => {
     // ANIMATION
-    const targetCoords = {
-      top: modal.dataset.cardTop,
-      left: modal.dataset.cardLeft,
-    };
 
     const targetClone = document.documentElement.querySelector('.Modal_body .Panel-Clone');
     const modalContent = modal.querySelector('.Modal-Content');
@@ -122,17 +121,16 @@ export function animationClose(modal, pageWrapper) {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         Object.assign(targetClone.style, {
-          left: `${targetCoords.left}px`,
-          top: `${targetCoords.top}px`,
-          transition: '0.2s linear all',
-          width: '200px',
-          height: '120px',
+          transform: `translate3d(0, 0, 0) scale(1)`,
+          transition: '0.3s linear',
+          transitionProperty: 'transform, opacity',
+          opacity: '0.5',
         });
 
         pageWrapper.classList.remove('Modal_blure');
 
         resolve();
-      }, 200);
+      }, 300);
     });
 
     promise.then(() => {
@@ -164,7 +162,7 @@ export function animationClose(modal, pageWrapper) {
 
         modal.style.top = '';
         targetClone.remove();
-      }, 200);
+      }, 250);
     });
   };
 }
