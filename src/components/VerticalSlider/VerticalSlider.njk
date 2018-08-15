@@ -1,9 +1,9 @@
 {% from "components/Panel/Panel.njk" import Panel %}
 
-{% macro VerticalSlider(bem, data) %}
+{% macro VerticalSlider(bem, data, a11y) %}
 
   <div class="VerticalSlider {{bem.mix}} {{bem.mod}}">
-    <ul class="VerticalSlider-ItemList">
+    <ul class="VerticalSlider-ItemList" aria-label="{{a11y.itemList}}">
 
       {% for item in data.panels %}
         <li class="VerticalSlider-Item">

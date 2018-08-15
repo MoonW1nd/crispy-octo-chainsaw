@@ -14,7 +14,11 @@
       {{Termometr({mix: "StateWidget-Termometr"}, data.weather.outdoor)}}
     </div>
   </div>
-  {{ VerticalSlider({mix: "StateWidget-VerticalSlider" }, data.verticalSlider)}}
+  {{ VerticalSlider(
+    { mix: "StateWidget-VerticalSlider" },
+    data.verticalSlider,
+    { itemList: "предстаящие сценарии" }
+  )}}
 </section>
 
 {% endmacro %}

@@ -24,6 +24,8 @@ html {
 
 body {
   margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 .Page-summary {
@@ -47,7 +49,7 @@ body {
 }
 
 *:focus {
-  box-shadow: 0 0 6px 0 #{rgba(#4a5cd0, 0.7)};
+  box-shadow: 0 0 2px 2px #{rgba(#4a5cd0, 0.7)};
 }
 
 @media (max-width: 850px) {

@@ -1,8 +1,8 @@
 {% macro Termometr(bem, data) %}
 
-  <div class="Termometr {{bem.mix}} {{bem.mod}}">
+  <div class="Termometr {{bem.mix}} {{bem.mod}}" aria-label="температура {{data.title}}">
     <p class="Termometr-Title">{{data.title}}</p>
-    <p class="Termometr-Value" >
+    <p class="Termometr-Value">
       {{data.temperature}}
       {% if data.weather %}
         <span class="Termometr-Icon" role="icon"><img src="./assets/{{data.weather}}.svg" alt="icon-{{data.weather}}"/></span>
