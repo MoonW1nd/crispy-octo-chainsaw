@@ -11,6 +11,7 @@ function getBox(elem) {
 
 export function animationOpen(modal, pageWrapper) {
   return event => {
+    event.preventDefault();
     let target = event.currentTarget;
 
     const title = target.querySelector('.Panel-Title').textContent;
@@ -110,7 +111,7 @@ export function animationOpen(modal, pageWrapper) {
 export function animationClose(modal, pageWrapper) {
   return event => {
     // ANIMATION
-
+    event.preventDefault();
     const targetClone = document.documentElement.querySelector('.Modal_body .Panel-Clone');
     const modalContent = modal.querySelector('.Modal-Content');
     const modalForm = modal.querySelector('.Modal-Form');

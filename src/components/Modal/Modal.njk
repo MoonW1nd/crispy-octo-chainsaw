@@ -2,11 +2,11 @@
 {% from "components/RangeController/RangeController.njk" import RangeController %}
 {% from "components/RotationalController/RotationalController.njk" import RotationalController %}
 
-{% macro Modal(bem, data) %}
+{% macro Modal(bem, data, a11y) %}
 
-  <div class="Modal {{ bem.mix }} {{ bem.mod }} Modal_hidden" tabindex="-1" aria-hidden="true" role="dialog">
+  <section class="Modal {{ bem.mix }} {{ bem.mod }} Modal_hidden" tabindex="-1" aria-hidden="true" role="dialog">
     <div class="Modal-Overlay"></div>
-    <section class="Modal-Form">
+    <form class="Modal-Form">
 
       <div class="Modal-Content">
         <header class="Modal-Header">
@@ -26,11 +26,11 @@
       </div>
 
       <div class="Modal-ButtonBlock">
-        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "confirm" }) }}
+        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "submit" }) }}
         {{ Button({mix: "Modal-Button"}, { content: "Закрыть" }) }}
       </div>
 
-    </section>
-  </div>
+    </form>
+  </section>
 
 {% endmacro %}

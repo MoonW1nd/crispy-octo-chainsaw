@@ -132,7 +132,7 @@ _**Описание компонентов:**_
 Компоненты описываются с помощью Nunjucks `macro`([Doc](https://mozilla.github.io/nunjucks/templating.html#macro)), и имеют следующую сигнатуру:
 
 ```
-{% macro macroName(bem, data) %}
+{% macro macroName(bem, data, a11y) %}
 
 <div class="Block {{ bem.mix }} {{ bem.mod }}">{{ data }}</div>
 
@@ -145,6 +145,7 @@ _**Описание компонентов:**_
   - mod - свойство объекта `bem` отвечает за модификаторы
   - mix - свойство объекта `bem` отвечает за миксы
 - data - вся нужная информация для построения компонента
+- a11y - параметры нужные для accessability
 
 ### 3. Верстка
 

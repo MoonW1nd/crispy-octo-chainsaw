@@ -1,7 +1,7 @@
-{% macro Button(bem, data) %}
+{% macro Button(bem, data, a11y) %}
 
-  {% if data.type == "confirm" %}
-    {% set type = "Button_type_confirm" %}
+  {% if data.type == "submit" %}
+    {% set type = "Button_type_submit" %}
   {% else %}
     {% set type = "" %}
   {% endif %}

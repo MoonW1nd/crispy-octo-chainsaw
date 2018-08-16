@@ -28,8 +28,8 @@ const DOM = {
 
 // Modal
 DOM.modal.main = document.querySelector('.Modal');
-DOM.modal.buttonClose = DOM.modal.main.querySelector('.Button:not(.Button_type_confirm)');
-DOM.modal.buttonConfirm = DOM.modal.main.querySelector('.Button.Button_type_confirm');
+DOM.modal.buttonClose = DOM.modal.main.querySelector('.Button:not(.Button_type_submit)');
+DOM.modal.buttonConfirm = DOM.modal.main.querySelector('.Button.Button_type_submit');
 DOM.modal.pageWrapper = document.querySelector('.Page-summary');
 DOM.modal.temperatureController = document.querySelector(
   '.RangeController.Modal-TemperatureController'
