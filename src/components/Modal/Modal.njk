@@ -10,18 +10,26 @@
 
       <div class="Modal-Content">
         <header class="Modal-Header">
-          <h2 class="Modal-Title"></h2>
+          <h2 class="Modal-Title">Устройство</h2>
 
           <div class="Modal-IconWrapper">
             <p class="Modal-Value"></p>
-            <img class="Modal-Icon" src="" alt="">
+            <img class="Modal-Icon" src="#" alt="#">
           </div>
           <p class="Modal-Description"></p>
         </header>
         <div class="Modal-Controller">
           {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-TemperatureController' }, data.controllers.temperature, {tabIndex: "-1"}) }}
           {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-LightController' }, data.controllers.light, {tabIndex: "-1"}) }}
-          {{ RotationalController({ mod: 'Modal_hidden', mix: 'Modal-FloorController' }, data.controllers.floor) }}
+          {{ RotationalController(
+            { mod: 'Modal_hidden', mix: 'Modal-FloorController' },
+            data.controllers.floor,
+            {
+              main: "вращаетльный контроллер",
+              value: "устанавливаемая температура",
+              indicator: "регулятор температуры"
+            }
+          ) }}
         </div>
       </div>
 

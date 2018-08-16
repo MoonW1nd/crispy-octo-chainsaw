@@ -29,8 +29,10 @@
     background-color: $background-color_secondary;
     border: 0;
 
-    &:hover {
+    &:hover,
+    &:active {
       cursor: pointer;
+      background-color: darken($background-color_secondary, 3%);
     }
 
     &:active {
@@ -40,7 +42,8 @@
     &_state_active {
       background-color: $accent-color;
 
-      &:hover {
+      &:hover,
+      &:active {
         background: $accent-color_dark;
       }
     }
@@ -53,6 +56,18 @@
 
 @media (max-width: 650px) {
   .Filter {
+    &-Button {
+      &:hover {
+        background-color: $background-color_secondary;
+      }
+
+      &_state_active {
+        &:hover {
+          background-color: $accent-color;
+        }
+      }
+    }
+
     &_type_collapse {
       .Filter-Button_state_active {
         .Filter-Arrow {

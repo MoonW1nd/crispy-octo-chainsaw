@@ -7,15 +7,31 @@
   border-radius: $border-radius_primary;
   cursor: pointer;
 
-  &:hover {
-    background-color: $background-color_secondary;
+  &:hover,
+  &:active {
+    background-color: darken($background-color_primary, 3%);
   }
 
   &_type_submit {
     background-color: $accent-color;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $accent-color_dark;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .Button {
+    &:hover {
+      background-color: $background-color_primary;
+    }
+
+    &_type_submit {
+      &:hover {
+        background-color: $accent-color;
+      }
     }
   }
 }

@@ -21,6 +21,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const htmlv = require('gulp-html-validator');
 
 // DEFINE ENVIRONMENTS
 
@@ -67,14 +68,17 @@ function styles() {
 }
 
 function html() {
-  return gulp
-    .src(['src/*.njk'])
-    .pipe(plumber())
-    .pipe(nunjucks.compile(data.index))
-    .pipe(rename({ extname: '.html' }))
-    .pipe(removeEmptyLines())
-    .pipe(production(minifyHTML()))
-    .pipe(gulp.dest('build'));
+  return (
+    gulp
+      .src(['src/*.njk'])
+      .pipe(plumber())
+      .pipe(nunjucks.compile(data.index))
+      .pipe(rename({ extname: '.html' }))
+      .pipe(removeEmptyLines())
+      .pipe(production(minifyHTML()))
+      // .pipe(htmlv())
+      .pipe(gulp.dest('build'))
+  );
 }
 
 function javaScript() {

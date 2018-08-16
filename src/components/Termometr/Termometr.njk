@@ -8,7 +8,7 @@
         {% if data.weather == "cloud-drizzle" %}
           {% set ariaLabel = "облочно возможен дождь" %}
         {% endif %}
-        <span class="Termometr-Icon" role="icon"><img src="./assets/{{data.weather}}.svg" alt="погодные условия: {{ariaLabel}}"/></span>
+        <span class="Termometr-Icon"><img src="./assets/{{data.weather}}.svg" alt="погодные условия: {{ariaLabel}}"/></span>
       {% endif %}
     </p>
   </div>

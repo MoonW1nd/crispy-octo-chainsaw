@@ -33,7 +33,8 @@ export function rotation(rotationController) {
   }
 
   manager.add(Pan);
-  setAngle(pieDiagram, indicator);
+
+  setAngle(pieDiagram, indicator, 220);
 
   manager.on('pan', e => {
     let coords = getCoords(manipulator);

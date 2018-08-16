@@ -89,8 +89,7 @@
           "title": "Сценарии",
           "isActive": false
         }
-      ],
-      "role": "menu"
+      ]
     },
     "footerNavigation": {
       "items": [
@@ -255,7 +254,7 @@
         "weather": {
           "home": {
             "title": "Дома",
-            "temperature": "+23"
+            "temperature": "+25"
           },
           "outdoor": {
             "title": "За окном",

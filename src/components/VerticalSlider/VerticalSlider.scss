@@ -26,6 +26,10 @@
       cursor: pointer;
     }
   }
+
+  .Panel {
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 850px) {

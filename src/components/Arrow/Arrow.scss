@@ -14,7 +14,11 @@
     }
 
     &:hover {
-      cursor: w;
+      cursor: pointer;
+    }
+
+    &:active {
+      opacity: 0.6;
     }
   }
 

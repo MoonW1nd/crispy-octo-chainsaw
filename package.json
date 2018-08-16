@@ -45,6 +45,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.1",
     "gulp-environments": "^0.1.2",
+    "gulp-html-validator": "0.0.5",
     "gulp-htmlnano": "^0.1.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-newer": "^1.4.0",

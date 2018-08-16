@@ -72,7 +72,7 @@ export function animationOpen(modal, pageWrapper) {
       rangeController.focus();
       rangeController.value = currentValue;
     } else {
-      modal.focus();
+      modal.querySelector('.RotationalController-IdicatorBlock').focus();
     }
 
     // ANIMATION
@@ -171,7 +171,8 @@ export function animationClose(modal, pageWrapper) {
             button.setAttribute('tabindex', '-1');
           });
 
-          element.setAttribute('tabindex', '-1');
+          const rangeController = element.querySelector('input[type="range"]');
+          if (rangeController) rangeController.setAttribute('tabindex', '-1');
 
           // Убираем смещение фильтров
           if (element.querySelector('.Filter-TypesList')) {
