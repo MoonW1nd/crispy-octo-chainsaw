@@ -1,11 +1,19 @@
 {% macro Button(bem, data, a11y) %}
 
   {% if data.type == "submit" %}
-    {% set type = "Button_type_submit" %}
+    {% set class = "Button_type_submit" %}
+    {% set type = "submit" %}
   {% else %}
-    {% set type = "" %}
+    {% set class = "" %}
+    {% set type = "button" %}
   {% endif %}
 
-  <button class="Button {{bem.mix}} {{bem.mod}} {{type}}"><b>{{data.content}}</b></button>
+  {% if a11y.tabIndex == "-1" %}
+    {% set tabIndex = "-1" %}
+  {% else %}
+    {% set tabIndex = "0" %}
+  {% endif %}
+
+  <button class="Button {{bem.mix}} {{bem.mod}} {{class}}" type="{{type}}" tabindex="{{tabIndex}}"><b>{{data.content}}</b></button>
 
 {% endmacro %}

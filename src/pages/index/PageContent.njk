@@ -4,16 +4,27 @@
 
 {% macro PageContent(bem, data, a11y) %}
 
-<div class="PageContent">
+<main class="PageContent" role="main">
   <div class="PageContent-MainRow">
-    <main class="PageContent-Main" role="main">
+    <section class="PageContent-Main" aria-label="главное">
       <h2 class="PageContent-MainTitle">Главное</h2>
       {{ StateWidget({mix: 'PageContent-StateWidget'}, data.stateWidget) }}
-    </main>
-    {{ GridSlider({mix: 'PageContent-GridSlider'}, data.GridSlider) }}
+    </section>
+    {{GridSlider(
+      {mix: 'PageContent-GridSlider'},
+      data.GridSlider,
+      { main: "избранные сценарии"}
+    )}}
   </div>
-  {{ RowSlider({mix: 'PageContent-RowSlider'}, data.panelsRow) }}
+  {{RowSlider(
+    {mix: 'PageContent-RowSlider'},
+    data.panelsRow,
+    {
+      main: "избранные устройства",
+      itemList: "список устройств"
+    }
+  )}}
 
-</div>
+</main>
 
 {% endmacro %}

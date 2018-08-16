@@ -1,7 +1,13 @@
 {% macro Filter(bem, data, a11y) %}
 
   <div class="Filter {{bem.mix}} {{bem.mod}}">
-    <ul class="Filter-TypesList">
+    <ul class="Filter-TypesList" aria-label="{{a11y.filterList}}">
+
+      {% if a11y.tabIndex == "-1" %}
+        {% set tabIndex = "-1" %}
+      {% else %}
+        {% set tabIndex = "0" %}
+      {% endif %}
 
       {% for item in data.filterTypes %}
 
@@ -12,7 +18,7 @@
         {% endif %}
 
         <li class="Filter-Type">
-          <button class="Filter-Button {{state}}" data-tag="{{item.tag}}"><b>{{item.value}}</b><span class="Filter-Arrow"></span></button>
+          <button class="Filter-Button {{state}}" data-tag="{{item.tag}}" tabindex="{{tabIndex}}"><b>{{item.value}}</b><span class="Filter-Arrow"></span></button>
         </li>
       {% endfor %}
 

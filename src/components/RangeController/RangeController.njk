@@ -4,7 +4,7 @@
 
   <div class="RangeController {{ bem.mod }}  {{bem.mix}}">
     <div class="RangeController-Presets">
-      {{Presets({mix: "RangeController-Filter"}, data.presets)}}
+      {{Presets({mix: "RangeController-Filter"}, data.presets, {filterList: "предустановленные настройки", tabIndex: "-1"})}}
     </div>
     <div class="RangeController-ControllerBlock">
       <input
@@ -14,14 +14,15 @@
         max="100"
         data-min="{{ data.boundaryCondition.low }}"
         data-max="{{ data.boundaryCondition.high }}"
+        tabindex="{{a11y.tabIndex}}"
       />
 
       {% if data.type == "sun" %}
           <div class="RangeController-LowBoundaryCondition RangeController-LowBoundaryCondition_type_sun">
-            <img class="Modal-Icon" src="../assets/icon_sun_min.svg" alt="low-sun-icon">
+            <img class="Modal-Icon" src="../assets/icon_sun_min.svg" alt="тусклый свет">
           </div>
           <div class="RangeController-HightBoundaryCondition RangeController-HightBoundaryCondition_type_sun">
-            <img class="Modal-Icon" src="../assets/icon_sun_max.svg" alt="hight-sun-icon">
+            <img class="Modal-Icon" src="../assets/icon_sun_max.svg" alt="яркий свет">
           </div>
         {% else %}
           <div class="RangeController-LowBoundaryCondition">{{ data.boundaryCondition.low }}</div>

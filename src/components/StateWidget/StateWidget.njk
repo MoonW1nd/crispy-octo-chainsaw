@@ -6,7 +6,7 @@
 <section class="StateWidget {{ bem.mix }} {{ bem.mod }}">
   <div class="StateWidget-StateBlock">
     <div class="StateWidget-HomeState">
-      <h1 class="StateWidget-Greet">{{ data.greeting }}</h1>
+      <p class="StateWidget-Greet"><b>{{ data.greeting }}</b></p>
       <p class="StateWidget-Description">{{ data.description }}</p>
     </div>
     <div class="StateWidget-Weather">
@@ -17,7 +17,7 @@
   {{ VerticalSlider(
     { mix: "StateWidget-VerticalSlider" },
     data.verticalSlider,
-    { itemList: "предстоящие сценарии"}
+    { itemList: "список ближайших сценариев"}
   )}}
 </section>
 

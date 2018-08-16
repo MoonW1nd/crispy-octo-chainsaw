@@ -9,10 +9,17 @@ function getBox(elem) {
   };
 }
 
+function _toArray(nodeList) {
+  return Array.prototype.slice.call(nodeList);
+}
+
 export function animationOpen(modal, pageWrapper) {
   return event => {
     event.preventDefault();
     let target = event.currentTarget;
+
+    // accesibility settings
+    modal.setAttribute('aria-hidden', 'false');
 
     const title = target.querySelector('.Panel-Title').textContent;
     const description = target.querySelector('.Panel-Description').textContent;
@@ -29,14 +36,14 @@ export function animationOpen(modal, pageWrapper) {
       modalIcon.src = `../assets/icon_${iconType}.svg`;
     }
 
-    modalIcon.setAttribute('alt', `icon-${iconType}`);
-
     if (iconType === 'temperature') {
       let setValue = currentValue;
       if (currentValue > 0) setValue = `+${currentValue}`;
       valueElement.innerHTML = `<b>${setValue}</b>`;
+      modalIcon.setAttribute('alt', `иконка: термометр`);
     } else {
       valueElement.innerHTML = '';
+      modalIcon.setAttribute('alt', `иконка: свет`);
     }
 
     let controllerElement;
@@ -50,10 +57,22 @@ export function animationOpen(modal, pageWrapper) {
       console.warn('[Error] in Modal.animationOpen method: not find correct controller');
     }
 
+    _toArray(controllerElement.querySelectorAll('.Filter-Button')).forEach(button => {
+      button.setAttribute('tabindex', '0');
+    });
+
+    _toArray(modal.querySelectorAll('.Modal-Button')).forEach(button => {
+      button.setAttribute('tabindex', '0');
+    });
+
     controllerElement.classList.remove('Modal_hidden');
     if (controller === 'range') {
       const rangeController = controllerElement.querySelector('input[type="range"]');
+      rangeController.setAttribute('tabindex', '0');
+      rangeController.focus();
       rangeController.value = currentValue;
+    } else {
+      modal.focus();
     }
 
     // ANIMATION
@@ -119,6 +138,10 @@ export function animationClose(modal, pageWrapper) {
     modalForm.style.opacity = '0';
     targetClone.style.opacity = '1';
 
+    _toArray(modal.querySelectorAll('.Modal-Button')).forEach(button => {
+      button.setAttribute('tabindex', '-1');
+    });
+
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         Object.assign(targetClone.style, {
@@ -143,6 +166,12 @@ export function animationClose(modal, pageWrapper) {
         modal.classList.add('Modal_hidden');
         controllers.forEach(element => {
           element.classList.add('Modal_hidden');
+
+          _toArray(element.querySelectorAll('.Filter-Button')).forEach(button => {
+            button.setAttribute('tabindex', '-1');
+          });
+
+          element.setAttribute('tabindex', '-1');
 
           // Убираем смещение фильтров
           if (element.querySelector('.Filter-TypesList')) {

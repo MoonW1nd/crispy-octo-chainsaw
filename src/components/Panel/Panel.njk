@@ -18,9 +18,15 @@
     <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }}>
   {% endif %}
 
+    {% if data.type == "sun" %}
+      {% set ariaLabel = "иконка: свет" %}
+    {% elif data.type == "temperature" %}
+      {% set ariaLabel = "иконка: датчик температуры" %}
+    {% endif %}
+
     <div class="Panel-IconWrapper">
-      <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="icon-{{ data.type }}">
-      <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="icon-{{ data.type }}">
+      <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="{{ ariaLabel }} включен">
+      <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="{{ ariaLabel }} выключен">
     </div>
     <div class="Panel-Content">
       <h3 class="Panel-Title">{{ data.title }}</h3>

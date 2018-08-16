@@ -3,7 +3,7 @@
 {% from "components/Modal/Modal.njk" import Modal %}
 
 {% block Modal %}
-  {{Modal({}, modal)}}
+  {{Modal({}, modal, {form: "Настройка работы устройства"})}}
 {% endblock %}
 
 {% block PageContent %}

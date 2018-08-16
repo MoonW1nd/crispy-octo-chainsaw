@@ -4,14 +4,18 @@
 
 {% macro RowSlider(bem, data, a11y) %}
 
-<section class="RowSlider {{bem.mix}} {{bem.mod}}">
+<section class="RowSlider {{bem.mix}} {{bem.mod}}" aria-label="{{a11y.main}}">
   <header class="RowSlider-Header">
     <h2 class="RowSlider-Title">{{data.title}}</h2>
-    {{ Filter({mix: "RowSlider-Filter", mod: "Filter_type_collapse"}, data.filter) }}
-    {{ Switch({mix: "RowSlider-Switch"}, {}) }}
+    {{Filter(
+      {mix: "RowSlider-Filter", mod: "Filter_type_collapse"},
+      data.filter,
+      {filterList: "фильтр избранных устройств"}
+    )}}
+    {{ Switch({mix: "RowSlider-Switch"}, {}, {main: "пролистывание списка устройств"}) }}
   </header>
   <div class="RowSlider-Row">
-    <ul class="RowSlider-ItemsList">
+    <ul class="RowSlider-ItemsList" aria-label="{{a11y.itemList}}">
 
       {% for item in data.panels %}
         <li class="RowSlider-Item">

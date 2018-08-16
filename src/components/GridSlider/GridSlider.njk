@@ -3,10 +3,10 @@
 
 {% macro GridSlider(bem, data, a11y) %}
 
-<section class="GridSlider {{bem.mod}} {{bem.mix}}">
+<section class="GridSlider {{bem.mod}} {{bem.mix}}" aria-label="{{a11y.main}}">
   <header class="GridSlider-Header">
     <h2 class="GridSlider-Title">{{data.title}}</h2>
-    {{ Switch({mod: "GridSlider-Switch"}, {}) }}
+    {{ Switch({mod: "GridSlider-Switch"}, {}, {main: "пролистывание списка сценариев"}) }}
   </header>
   <div class="GridSlider-Grid">
     <ul class="GridSlider-ItemsList">

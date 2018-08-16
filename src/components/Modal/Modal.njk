@@ -6,7 +6,7 @@
 
   <section class="Modal {{ bem.mix }} {{ bem.mod }} Modal_hidden" tabindex="-1" aria-hidden="true" role="dialog">
     <div class="Modal-Overlay"></div>
-    <form class="Modal-Form">
+    <form class="Modal-Form" aria-label="{{a11y.form}}">
 
       <div class="Modal-Content">
         <header class="Modal-Header">
@@ -19,15 +19,15 @@
           <p class="Modal-Description"></p>
         </header>
         <div class="Modal-Controller">
-          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-TemperatureController' }, data.controllers.temperature) }}
-          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-LightController' }, data.controllers.light) }}
+          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-TemperatureController' }, data.controllers.temperature, {tabIndex: "-1"}) }}
+          {{ RangeController({ mod: 'Modal_hidden', mix: 'Modal-LightController' }, data.controllers.light, {tabIndex: "-1"}) }}
           {{ RotationalController({ mod: 'Modal_hidden', mix: 'Modal-FloorController' }, data.controllers.floor) }}
         </div>
       </div>
 
       <div class="Modal-ButtonBlock">
-        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "submit" }) }}
-        {{ Button({mix: "Modal-Button"}, { content: "Закрыть" }) }}
+        {{ Button({mix: "Modal-Button"}, { content: "Применить", type: "submit" }, {tabIndex: "-1"}) }}
+        {{ Button({mix: "Modal-Button"}, { content: "Закрыть" }, {tabIndex: "-1"}) }}
       </div>
 
     </form>
