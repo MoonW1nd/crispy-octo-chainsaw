@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp build --env development",
     "build": "gulp build --env production",
+    "htmlv": "gulp validateHTML",
     "clean": "gulp clean"
   },
   "repository": {

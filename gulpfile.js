@@ -68,17 +68,26 @@ function styles() {
 }
 
 function html() {
-  return (
-    gulp
-      .src(['src/*.njk'])
-      .pipe(plumber())
-      .pipe(nunjucks.compile(data.index))
-      .pipe(rename({ extname: '.html' }))
-      .pipe(removeEmptyLines())
-      .pipe(production(minifyHTML()))
-      // .pipe(htmlv({format: 'html'}))
-      .pipe(gulp.dest('build'))
-  );
+  return gulp
+    .src(['src/*.njk'])
+    .pipe(plumber())
+    .pipe(nunjucks.compile(data.index))
+    .pipe(rename({ extname: '.html' }))
+    .pipe(removeEmptyLines())
+    .pipe(production(minifyHTML()))
+    .pipe(htmlv({ format: 'html' }))
+    .pipe(gulp.dest('build'));
+}
+
+function validateHTML() {
+  return gulp
+    .src(['src/*.njk'])
+    .pipe(plumber())
+    .pipe(nunjucks.compile(data.index))
+    .pipe(rename({ extname: '.html' }))
+    .pipe(removeEmptyLines())
+    .pipe(htmlv({ format: 'html' }))
+    .pipe(gulp.dest('build'));
 }
 
 function javaScript() {
@@ -130,7 +139,14 @@ const build = production()
       gulp.parallel(watch, serve)
     );
 
+const taskValidateHTML = gulp.series(
+  cleanBuild,
+  gulp.parallel(html, assets),
+  gulp.parallel(watch, serve)
+);
+
 // TASKS
 
 gulp.task('build', build);
 gulp.task('clean', cleanBuild);
+gulp.task('validateHTML', taskValidateHTML);

@@ -3,7 +3,7 @@
   <div class="Termometr {{bem.mix}} {{bem.mod}}" aria-label="температура {{data.title}}">
     <p class="Termometr-Title">{{data.title}}</p>
     <p class="Termometr-Value">
-      {{data.temperature}}
+      <b>{{data.temperature}}</b>
       {% if data.weather %}
         {% if data.weather == "cloud-drizzle" %}
           {% set ariaLabel = "облочно возможен дождь" %}

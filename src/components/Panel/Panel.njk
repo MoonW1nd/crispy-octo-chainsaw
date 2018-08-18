@@ -6,6 +6,12 @@
     {% set state = "" %}
   {% endif %}
 
+  {% if a11y.tabindex == '-1' %}
+    {% set tabIndex = "-1" %}
+  {% else %}
+    {% set tabIndex = "0" %}
+  {% endif %}
+
   {% if data.tags %}
     <button
       class="Panel {{bem.mod}} {{bem.mix}} {{state}}"
@@ -16,7 +22,7 @@
       type="button"
     >
   {% else %}
-    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }} tabindex="{{a11y.tabindex}}" type="button">
+    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }} tabindex="{{tabIndex}}" type="button">
   {% endif %}
 
     {% if data.type == "sun" %}

@@ -21,7 +21,7 @@ export function close(menu) {
   const closeHandler = () => {
     let windowWidth = document.documentElement.clientWidth;
     if (windowWidth <= 850) {
-      listItem.style.display = 'none';
+      listItem.style.display = '';
     }
   };
 
