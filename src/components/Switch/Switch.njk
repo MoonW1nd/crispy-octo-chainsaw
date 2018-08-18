@@ -3,8 +3,8 @@
 {% macro Switch(bem, data, a11y) %}
 
   <div class="Switch {{bem.mix}} {{bem.mod}}" aria-label="{{a11y.main}}">
-    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_left"}, {}, {main: "стрелка влево"}) }}
-    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_right"}, {}, {main: "стрелка вправо"}) }}
+    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_left"}, {switchMix: bem.mix}, {main: "стрелка влево"}) }}
+    {{ Arrow({mix: "Switch-Arrow", mod: "Arrow_direction_right"}, {switchMix: bem.mix}, {main: "стрелка вправо"}) }}
   </div>
 
 {% endmacro %}

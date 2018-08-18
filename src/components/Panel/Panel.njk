@@ -24,18 +24,19 @@
       {% set ariaLabel = "иконка: датчик температуры" %}
     {% endif %}
 
-    <div class="Panel-IconWrapper">
+    <span class="Panel-IconWrapper" aria-hidden="true">
       <img class="Panel-Icon Panel-Icon_state_active" src="../assets/icon_{{data.type}}_active.svg" alt="{{ ariaLabel }} включен">
       <img class="Panel-Icon Panel-Icon_state_default" src="../assets/icon_{{data.type}}.svg" alt="{{ ariaLabel }} выключен">
-    </div>
-    <div class="Panel-Content">
-      <h3 class="Panel-Title">{{ data.title }}</h3>
+    </span>
+    <span class="Panel-Content">
+      <b class="Panel-Title">{{ data.title }}</b>
+      <br>
 
       {% if data.description %}
-        <p class="Panel-Description">{{ data.description }}</p>
+        <small class="Panel-Description">{{ data.description }}</small>
       {% endif %}
 
-    </div>
+    </span>
   </button>
 
 {% endmacro %}

@@ -3,7 +3,7 @@
 
 {% macro StateWidget(bem, data) %}
 
-<section class="StateWidget {{ bem.mix }} {{ bem.mod }}">
+<div class="StateWidget {{ bem.mix }} {{ bem.mod }}">
   <div class="StateWidget-StateBlock">
     <div class="StateWidget-HomeState">
       <p class="StateWidget-Greet"><b>{{ data.greeting }}</b></p>
@@ -19,6 +19,6 @@
     data.verticalSlider,
     { itemList: "список ближайших сценариев"}
   )}}
-</section>
+</div>
 
 {% endmacro %}
