@@ -56,4 +56,8 @@ body {
   .Page-summary {
     overflow-y: scroll;
   }
+
+  *:focus {
+    box-shadow: initial;
+  }
 }

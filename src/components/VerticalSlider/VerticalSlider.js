@@ -15,9 +15,11 @@ export function swipe(slider) {
   manager.on('panstart', () => {
     button.style.opacity = 0;
   });
+
   manager.on('panend', () => {
     button.style.opacity = 1;
   });
+
   manager.on('pancancel', () => {
     button.style.opacity = 1;
   });
@@ -35,6 +37,47 @@ export function swipe(slider) {
   });
 }
 
+export function shift(slider) {
+  let itemList = slider.querySelector('.VerticalSlider-ItemList');
+  let button = slider.querySelector('.VerticalSlider-Button');
+  let currentTransform = 0;
+
+  button.addEventListener('click', () => {
+    const listHeight = itemList.clientHeight;
+    const parentHeight = itemList.parentNode.clientHeight;
+    const maxShift = parentHeight - listHeight - 20;
+
+    currentTransform -= 140;
+    if (currentTransform === maxShift - 140) {
+      currentTransform = 0;
+    } else if (currentTransform < maxShift) {
+      currentTransform = maxShift;
+    }
+
+    itemList.style.transform = `translateY(${currentTransform}px)`;
+  });
+}
+
+export function resize(slider) {
+  const itemList = slider.querySelector('.VerticalSlider-ItemList');
+  const button = slider.querySelector('.VerticalSlider-Button');
+
+  return () => {
+    const listHeight = itemList.clientHeight;
+    const parentHeight = itemList.parentNode.clientHeight;
+    itemList.style.transform = `translateY(0px)`;
+    // console.log(parentHeight)
+
+    if (listHeight < parentHeight) {
+      button.style.display = 'none';
+    } else {
+      button.style.display = 'block';
+    }
+  };
+}
+
 export default {
   swipe,
+  shift,
+  resize,
 };

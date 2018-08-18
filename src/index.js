@@ -76,6 +76,11 @@ _toArray(DOM.rowSlider.panels).forEach(panel => {
 
 // VerticalSlider
 VerticalSlider.swipe(document.querySelector('.StateWidget .VerticalSlider'));
+VerticalSlider.shift(document.querySelector('.StateWidget .VerticalSlider'));
+const verticalSliderResize = VerticalSlider.resize(
+  document.querySelector('.StateWidget .VerticalSlider')
+);
+verticalSliderResize();
 
 // GridSlider
 DOM.gridSlider.main = document.querySelector('.GridSlider');
@@ -112,5 +117,6 @@ _toArray(DOM.gridSlider.panels).forEach(panel => {
   function actualResizeHandler() {
     GridSwitch.resize();
     RowSwitch.resize();
+    verticalSliderResize();
   }
 })();

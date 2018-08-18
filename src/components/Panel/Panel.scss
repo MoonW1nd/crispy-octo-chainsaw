@@ -78,5 +78,10 @@
       background-color: $background-color_secondary;
       box-shadow: initial;
     }
+
+    &:active {
+      background: $background-color_primary;
+      box-shadow: 0 2px 6px 0 #{rgba(#c5baba, 0.5)};
+    }
   }
 }

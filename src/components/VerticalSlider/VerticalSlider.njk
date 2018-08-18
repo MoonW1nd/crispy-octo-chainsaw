@@ -7,7 +7,7 @@
 
       {% for item in data.panels %}
         <li class="VerticalSlider-Item">
-          {{ Panel({}, item) }}
+          {{ Panel({}, item, {tabindex: '-1'}) }}
         </li>
       {% endfor %}
 

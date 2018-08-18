@@ -1,14 +1,3 @@
-function getBox(elem) {
-  var box = elem.getBoundingClientRect();
-
-  return {
-    top: box.top + pageYOffset,
-    left: box.left + pageXOffset,
-    width: box.width,
-    height: box.height,
-  };
-}
-
 export class Switch {
   constructor(elementsList, switchElement, shift, margin = 0) {
     this.elementsList = elementsList;

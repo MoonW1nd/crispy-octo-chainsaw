@@ -45,6 +45,11 @@
   .GridSlider {
     &-Grid {
       height: auto;
+      margin: 0 0 0 -20px;
+      padding: 0 0 0 20px;
+      width: 100vw;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     &-ItemsList {

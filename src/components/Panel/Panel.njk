@@ -15,7 +15,7 @@
       data-current-value={{ data.currentValue }}
     >
   {% else %}
-    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }}>
+    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }} tabindex="{{a11y.tabindex}}">
   {% endif %}
 
     {% if data.type == "sun" %}
