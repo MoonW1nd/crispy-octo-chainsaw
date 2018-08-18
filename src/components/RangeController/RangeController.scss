@@ -72,11 +72,21 @@
   }
 
   &-LowBoundaryCondition {
-    left: 20px;
+    left: 13px;
+
+    img {
+      width: 35px;
+      height: 35px;
+    }
   }
 
   &-HightBoundaryCondition {
-    right: 20px;
+    right: 18px;
+
+    img {
+      width: 35px;
+      height: 35px;
+    }
   }
 }
 
@@ -112,7 +122,7 @@
 
     &-LowBoundaryCondition {
       transform: rotate(-90deg);
-      right: 20px;
+      right: 9px;
       bottom: 26px;
       left: initial;
       top: initial;
@@ -124,7 +134,7 @@
 
       &_type_sun {
         right: 5px;
-        bottom: 13px;
+        bottom: 12px;
       }
     }
 
@@ -132,8 +142,8 @@
       transform: rotate(-90deg);
       right: initial;
       bottom: initial;
-      left: 20px;
-      top: 21px;
+      left: 13px;
+      top: 22px;
 
       img {
         width: 40px;
@@ -141,8 +151,8 @@
       }
 
       &_type_sun {
-        left: 14px;
-        top: 9px;
+        left: 15px;
+        top: 10px;
       }
     }
   }

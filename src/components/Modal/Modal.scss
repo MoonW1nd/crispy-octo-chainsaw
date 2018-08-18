@@ -40,8 +40,8 @@
     display: flex;
     position: absolute;
     align-items: center;
-    top: 0;
-    right: 0;
+    top: -1px;
+    right: -3px;
   }
 
   &-Icon {
@@ -57,7 +57,7 @@
 
   &-Value {
     font-size: 2.25rem;
-    margin: 0 15px 0 0;
+    margin: 0;
   }
 
   &-Button {
@@ -70,6 +70,9 @@
 
   &-Controller {
     margin-top: 20px;
+    .RangeController {
+      margin-bottom: -6px;
+    }
   }
 
   &-Overlay {

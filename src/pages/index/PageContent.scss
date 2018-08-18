@@ -6,7 +6,7 @@
   flex-grow: 1;
 
   &-MainTitle {
-    margin: 0 0 20px;
+    margin: -2px 0 19px;
     font-size: 1.13rem;
   }
 
@@ -28,8 +28,8 @@
   }
 
   &-GridSlider {
-    margin-left: 15px;
-    width: calc(50% - 15px / 2);
+    margin-left: 26px;
+    width: calc(50% - 17px / 2);
     overflow: hidden;
   }
 
@@ -39,13 +39,13 @@
 
   &-RowSlider {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 29px;
   }
 }
 
 @media (max-width: 850px) {
   .PageContent {
-    padding: 3px 20px 0 20px;
+    padding: 1px 20px 0 20px;
     margin-top: 65px;
     flex-grow: 1;
     flex-shrink: 0;

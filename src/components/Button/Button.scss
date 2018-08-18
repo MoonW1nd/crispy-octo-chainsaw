@@ -12,6 +12,12 @@
     background-color: darken($background-color_primary, 3%);
   }
 
+  b {
+    position: relative;
+    top: 2px;
+    left: 1px;
+  }
+
   &_type_submit {
     background-color: $accent-color;
 
