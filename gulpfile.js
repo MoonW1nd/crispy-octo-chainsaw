@@ -75,7 +75,6 @@ function html() {
     .pipe(rename({ extname: '.html' }))
     .pipe(removeEmptyLines())
     .pipe(production(minifyHTML()))
-    .pipe(htmlv({ format: 'html' }))
     .pipe(gulp.dest('build'));
 }
 
