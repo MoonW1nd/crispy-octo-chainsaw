@@ -64,7 +64,8 @@ function styles() {
         })
       )
     )
-    .pipe(gulp.dest('./build/css'));
+    .pipe(development(gulp.dest('build/css')))
+    .pipe(production(gulp.dest('./css')));
 }
 
 function html() {
@@ -75,7 +76,8 @@ function html() {
     .pipe(rename({ extname: '.html' }))
     .pipe(removeEmptyLines())
     .pipe(production(minifyHTML()))
-    .pipe(gulp.dest('build'));
+    .pipe(development(gulp.dest('build')))
+    .pipe(production(gulp.dest('./')));
 }
 
 function validateHTML() {
@@ -100,7 +102,8 @@ function javaScript() {
     .pipe(plumber())
     .pipe(rename({ suffix: '.min' }))
     .pipe(production(uglify()))
-    .pipe(gulp.dest('build/js'));
+    .pipe(development(gulp.dest('build/js')))
+    .pipe(production(gulp.dest('./js')));
 }
 
 function cleanBuild() {
@@ -120,7 +123,8 @@ function assets() {
     .pipe(plumber())
     .pipe(newer('build/assets'))
     .pipe(imagemin())
-    .pipe(gulp.dest('build/assets'));
+    .pipe(development(gulp.dest('build/assets')))
+    .pipe(production(gulp.dest('./assets')));
 }
 
 function watch() {
