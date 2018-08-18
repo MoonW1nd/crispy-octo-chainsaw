@@ -12,10 +12,11 @@
       data-icon-type={{ data.type }}
       data-tags={{ data.tags | join(",") }}
       data-controller={{ data.controller }}
-      data-current-value={{ data.currentValue }}
+      data-current-value={{ data.currentValue }},
+      type="button"
     >
   {% else %}
-    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }} tabindex="{{a11y.tabindex}}">
+    <button class="Panel {{bem.mod}} {{bem.mix}} {{state}}" data-icon-type={{ data-type }} tabindex="{{a11y.tabindex}}" type="button">
   {% endif %}
 
     {% if data.type == "sun" %}

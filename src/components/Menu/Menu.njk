@@ -1,7 +1,9 @@
 {% macro Menu(bem, data, a11y) %}
 
 <nav class="Menu {{bem.mix}} {{bem.mod}}">
-  <img class="Menu-Icon" src='../assets/icon_list_m@1x.svg' alt="Icon-Menu"/>
+  <button class="Menu-Button">
+    <img class="Menu-Icon" src='../assets/icon_list_m@1x.svg' alt="Icon-Menu"/>
+  </button>
   <ul class="Menu-ListItem">
 
     {% for item in data.items %}

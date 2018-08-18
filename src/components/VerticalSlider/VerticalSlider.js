@@ -66,7 +66,6 @@ export function resize(slider) {
     const listHeight = itemList.clientHeight;
     const parentHeight = itemList.parentNode.clientHeight;
     itemList.style.transform = `translateY(0px)`;
-    // console.log(parentHeight)
 
     if (listHeight < parentHeight) {
       button.style.display = 'none';

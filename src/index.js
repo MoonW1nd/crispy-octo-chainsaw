@@ -19,6 +19,9 @@ _toArray(document.querySelectorAll('.Header-Menu .Menu-Item')).forEach(item => {
   item.addEventListener('click', Menu.toggleStateActive);
 });
 
+Menu.open(document.querySelector('.Header-Menu'));
+Menu.close(document.querySelector('.Header-Menu'));
+
 // Объект для дом элементов
 const DOM = {
   modal: {},

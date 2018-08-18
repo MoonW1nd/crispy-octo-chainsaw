@@ -27,12 +27,27 @@
     background-color: $background-color_primary;
     z-index: 100;
 
-    .Menu-Icon {
+    .Menu-Button {
       display: inline-block;
     }
 
     .Menu-ListItem {
       display: none;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: fixed;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 1.13rem;
+      background-color: rgba($background-color_primary, 0.9);
+    }
+
+    .Menu-Item {
+      margin-top: 30px;
+      margin-right: 0;
     }
   }
 }

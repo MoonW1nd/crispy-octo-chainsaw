@@ -30,7 +30,15 @@
   &-Icon {
     width: 16px;
     height: 13px;
+  }
+
+  &-Button {
     display: none;
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
 
   &_size_small {
