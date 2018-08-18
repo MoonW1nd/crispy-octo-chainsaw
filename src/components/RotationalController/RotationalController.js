@@ -15,7 +15,7 @@ export function rotation(rotationController) {
   const valueContainer = rotationController.querySelector('.RotationalController-Value b');
   const initialRotateOffset = -151;
   const pieDiagram = rotationController.querySelector('.RotationalController-PieCircle');
-  const pieDash = parseInt(pieDiagram.getAttribute('stroke-dasharray').split(' ')[1], 10);
+  const pieDash = parseInt(pieDiagram.getAttribute('data-stroke-dasharray').split(' ')[1], 10);
   const maxValue = 35;
   const minValue = 5;
   const manager = new Hammer.Manager(manipulator);

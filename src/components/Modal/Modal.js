@@ -31,9 +31,9 @@ export function animationOpen(modal, pageWrapper) {
     modal.querySelector('.Modal-Title').innerHTML = `<b>${title}</b>`;
 
     if (target.classList.contains('Panel_state_active')) {
-      modalIcon.src = `../assets/icon_${iconType}_active.svg`;
+      modalIcon.src = `./assets/icon_${iconType}_active.svg`;
     } else {
-      modalIcon.src = `../assets/icon_${iconType}.svg`;
+      modalIcon.src = `./assets/icon_${iconType}.svg`;
     }
 
     if (iconType === 'temperature') {
