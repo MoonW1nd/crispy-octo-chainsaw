@@ -10,7 +10,7 @@
     list-style-type: none;
     align-content: flex-start;
     margin: 0 -15px 0 0;
-    padding: 0;
+    padding: 0 0 0 10px;
     transition: $pan-transition;
 
     &.ItemList_clone {
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
+    margin-left: 10px;
   }
 
   &-Switch {
@@ -43,6 +44,10 @@
 
 @media (max-width: 850px) {
   .GridSlider {
+    &-Header {
+      margin-left: 0;
+    }
+
     &-Grid {
       height: auto;
       margin: 0 0 0 -20px;
@@ -55,6 +60,7 @@
     &-ItemsList {
       flex-wrap: nowrap;
       flex-shrink: 0;
+      padding: 0;
     }
 
     &-Item:last-child {
