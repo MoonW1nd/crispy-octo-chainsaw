@@ -54,7 +54,7 @@
 
 ## Получившийся сайт на gh-pages
 
-[*https://moonw1nd.github.io/crispy-octo-chainsaw/*](https://moonw1nd.github.io/crispy-octo-chainsaw/)
+[_https://moonw1nd.github.io/crispy-octo-chainsaw/_](https://moonw1nd.github.io/crispy-octo-chainsaw/)
 
 ## Как запустить
 
@@ -232,6 +232,7 @@ _**Описание компонентов:**_
   - Safari
   - Yandex Browser
   - Opera
+  - Edge
 - Сайт тестировался на мобильных:
   - Android 7.1.2
   - iPad 2
